@@ -2,11 +2,16 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Hook do Next.js para pegar a rota atual (ex: '/sobre', '/contato')
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,27 +30,45 @@ export function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const getDesktopLinkClass = (path: string, isDisabled: boolean = false) => {
+    if (isDisabled) {
+      return isScrolled 
+        ? 'text-primary-200 opacity-50 cursor-not-allowed' 
+        : 'text-neutral-400 opacity-60 cursor-not-allowed';
+    }
+
+    const isActive = pathname === path;
+    if (isActive) {
+      return isScrolled ? 'text-white' : 'text-primary-600';
+    }
+    return isScrolled ? 'text-primary-100 hover:text-white' : 'text-neutral-950 hover:text-primary-500';
+  };
+
+  const getMobileLinkClass = (path: string, isDisabled: boolean = false) => {
+    if (isDisabled) {
+      return 'text-primary-200 opacity-50 cursor-not-allowed';
+    }
+
+    const isActive = pathname === path;
+    return isActive ? 'text-white' : 'text-primary-100 hover:text-white';
+  };
+
   return (
     <header 
-      
       className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ${
         isScrolled ? 'pt-2 md:pt-4 px-4 md:px-8' : 'pt-4 md:pt-8 px-4 sm:px-8 lg:px-12'
       }`}
     >
       <div 
-      
         className={`w-full max-w-7xl rounded-full transition-all duration-500 flex items-center justify-between ${
           isScrolled
-            ? 'bg-primary-900 py-1 md:py-3 px-4 md:px-6 shadow-lg shadow-primary-900/20 border border-primary-800 backdrop-blur-md' 
+            ? 'bg-primary-900 py-1 md:py-2 px-4 md:px-3 shadow-lg shadow-primary-900/20 border border-primary-800 backdrop-blur-md' 
             : 'bg-transparent py-2 px-2 border-transparent shadow-none'
         }`}
       >
     
         <div className="flex items-center">
-          <div 
-            className="relative items-center w-auto flex transition-all duration-500"
-          >
-          
+          <Link href="/" className="relative items-center w-auto flex transition-all duration-500">
             <Image 
               src="/static/logoHorizontal.png"
               alt="Logo Leterizza"
@@ -61,42 +84,44 @@ export function Header() {
               src="/static/Logo_Leterizza_Branco.png"
               alt="Logo Leterizza"
               fill
-              className={`object-contain object-left transition-opacity duration-500 ${
+              className={`object-contain object-left transition-opacity duration-500 mx-2 ${
                 isScrolled ? 'visible' : 'invisible'
               }`}
               priority
             />
-          </div>
+          </Link>
         </div>
         
         <nav className="hidden lg:flex items-center gap-8 text-base font-bold">
-          <a href="#" className={`transition-colors duration-300 ${
-            isScrolled ? 'text-primary-100 hover:text-white' : 'text-neutral-950 hover:text-primary-500'
-          }`}>Sobre nós</a>
-          <a href="#" className={`transition-colors duration-300 ${
-            isScrolled ? 'text-primary-100 hover:text-white' : 'text-neutral-950 hover:text-primary-500'
-          }`}>Funcionalidades</a>
-          <a href="#" className={`transition-colors duration-300 ${
-            isScrolled ? 'text-primary-100 hover:text-white' : 'text-neutral-950 hover:text-primary-500'
-          }`}>Planos</a>
-          <a href="#" className={`transition-colors duration-300 ${
-            isScrolled ? 'text-white' : 'text-primary-600'
-          }`}>Contatos</a>
+          <Link href="/sobre" className={`transition-colors duration-300 ${getDesktopLinkClass('/sobre')}`}>
+            Sobre nós
+          </Link>
+          
+          <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#funcionalidades', true)}`} title="Em breve">
+            Funcionalidades
+          </span>
+          <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#planos', true)}`} title="Em breve">
+            Planos
+          </span>
+
+          <Link href="/contato" className={`transition-colors duration-300 ${getDesktopLinkClass('/contato')}`}>
+            Contato
+          </Link>
         </nav>
         
         <div className="hidden lg:flex items-center gap-6">
-          <a href="#" className={`text-base font-bold transition-colors duration-300 ${
+          <Link href="#" className={`text-base font-bold transition-colors duration-300 ${
             isScrolled ? 'text-white hover:text-primary-200' : 'text-neutral-950 hover:text-primary-600'
           }`}>
             Entrar
-          </a>
-          <a href="#" className={`text-base font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 ${
+          </Link>
+          <Link href="#" className={`text-base font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 ${
             isScrolled 
               ? 'bg-white text-primary-900 hover:bg-neutral-100 shadow-white/10' 
               : 'bg-primary-500 text-white hover:bg-primary-600 shadow-primary-200'
           }`}>
             Cadastre-se
-          </a>
+          </Link>
         </div>
         
         <div className="lg:hidden flex items-center">
@@ -107,7 +132,6 @@ export function Header() {
             }`}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
-          
             {isMobileMenuOpen ? <X className="w-6 h-6 md:w-7 md:h-7" /> : <Menu className="w-6 h-6 md:w-7 md:h-7" />}
           </button>
         </div>
@@ -132,20 +156,30 @@ export function Header() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-6 text-lg font-bold text-primary-100 mb-auto">
-            <a href="#" onClick={toggleMobileMenu} className="hover:text-white">Sobre nós</a>
-            <a href="#" onClick={toggleMobileMenu} className="hover:text-white">Funcionalidades</a>
-            <a href="#" onClick={toggleMobileMenu} className="hover:text-white">Planos</a>
-            <a href="#" onClick={toggleMobileMenu} className="hover:text-white">Contatos</a>
+          <nav className="flex flex-col gap-6 text-lg font-bold mb-auto">
+            <Link href="/sobre" onClick={toggleMobileMenu} className={getMobileLinkClass('/sobre')}>
+              Sobre nós
+            </Link>
+            
+            <span className={`select-none ${getMobileLinkClass('#funcionalidades', true)}`} title="Em breve">
+              Funcionalidades
+            </span>
+            <span className={`select-none ${getMobileLinkClass('#planos', true)}`} title="Em breve">
+              Planos
+            </span>
+
+            <Link href="/contato" onClick={toggleMobileMenu} className={getMobileLinkClass('/contato')}>
+              Contato
+            </Link>
           </nav>
 
           <div className="flex flex-col gap-4 mt-12 pt-8 border-t border-primary-800">
-            <a href="#" onClick={toggleMobileMenu} className="text-lg font-bold text-white hover:text-primary-200 text-center py-3">
+            <Link href="#" onClick={toggleMobileMenu} className="text-lg font-bold text-white hover:text-primary-200 text-center py-3">
               Entrar
-            </a>
-            <a href="#" onClick={toggleMobileMenu} className="text-lg font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-sm bg-white text-primary-900 hover:bg-neutral-100 text-center">
+            </Link>
+            <Link href="#" onClick={toggleMobileMenu} className="text-lg font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-sm bg-white text-primary-900 hover:bg-neutral-100 text-center">
               Cadastre-se
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -153,7 +187,6 @@ export function Header() {
       {isMobileMenuOpen && (
         <div 
           onClick={toggleMobileMenu}
-         
           className="fixed inset-0 bg-black/50 z-55 lg:hidden backdrop-blur-sm"
           aria-hidden="true"
         />
