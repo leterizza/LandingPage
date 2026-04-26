@@ -247,7 +247,7 @@ export default function SobreNos() {
                       key={currentStep}
                       variants={stackVariants}
                       initial="enter"
-                      animate="center"m 
+                      animate="center" 
                       style={{ gridArea: 'cardArea' }}
                       className="bg-[#F6EBE8] rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full min-h-[380px] flex flex-col transform-gpu origin-bottom"
                     >
