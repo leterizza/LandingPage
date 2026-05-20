@@ -9,7 +9,7 @@ interface RecentPost {
   title: string;
   slug: string;
   excerpt: string;
-  mainImage: any;
+  mainImage: unknown;
   author: { name: string } | null;
   imageUrl: string | null;
 }

@@ -12,8 +12,8 @@ interface Post {
   title: string;
   slug: { current: string };
   excerpt: string;
-  author: { name: string; image: any };
-  mainImage: any;
+  author: { name: string; image: unknown };
+  mainImage: unknown;
   publishedAt: string;
 }
 

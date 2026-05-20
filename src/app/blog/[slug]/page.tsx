@@ -14,9 +14,10 @@ import { RecentPostsCarousel } from '@/components/blog/RecentPostsCarousel';
 interface Post {
   title: string;
   excerpt: string;
-  author: { name: string; role: string; image: any };
+  author: { name: string; role: string; image: unknown };
   publishedAt: string;
-  mainImage: any;
+  mainImage: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body: any;
   slug: { current: string };
 }
@@ -82,7 +83,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     }
   `, { slug });
 
-  // Pré-resolve as URLs das imagens no servidor
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recentPosts = recentPostsRaw.map((p: any) => ({
     ...p,
     imageUrl: p.mainImage ? urlForImage(p.mainImage).url() : null,
