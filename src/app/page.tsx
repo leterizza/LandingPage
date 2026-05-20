@@ -2,12 +2,10 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { SectionLabel } from '@/components/ui/SectionComponents';
 import { 
-  CheckCircle2, Star, ShieldCheck, Clock, 
+  CheckCircle2, Star, ShieldCheck, 
   DollarSign, Users, LayoutDashboard, 
-  Gamepad2, BookOpen, Lock, Bell, Zap, Trophy,
-  ArrowRight
+  Gamepad2, BookOpen, Lock, Bell, Zap, Trophy
 } from 'lucide-react';
 import { LandingPageForm } from '@/components/forms/LandingPageForm';
 
@@ -426,7 +424,7 @@ export default function Home() {
                                 <Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/>
                             </div>
                             <p className="text-sm text-gray-700 mb-6 leading-relaxed font-medium">
-                                "Finalmente uma plataforma que entende as dificuldades de quem não pode pagar cursinho caro. Estou amando testar cada funcionalidade!"
+                                &ldquo;Finalmente uma plataforma que entende as dificuldades de quem não pode pagar cursinho caro. Estou amando testar cada funcionalidade!&rdquo;
                             </p>
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-[#8B3DFF] font-bold">
