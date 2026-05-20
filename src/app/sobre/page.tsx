@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import Image from 'next/image';
 import { Users, ArrowLeft, ArrowRight, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
@@ -10,35 +11,35 @@ export default function SobreNos() {
   const [currentStep, setCurrentStep] = useState(0);
 
   const paginate = (direction: number) => {
-      setCurrentStep((prev) => {
-        let nextStep = prev + direction;
-        
-        if (nextStep < 0) {
-          return trajectorySteps.length - 1;
-        }
-        
-        if (nextStep >= trajectorySteps.length) {
-          return 0;
-        }
-        
-        return nextStep;
-      });
+    setCurrentStep((prev) => {
+      let nextStep = prev + direction;
+
+      if (nextStep < 0) {
+        return trajectorySteps.length - 1;
+      }
+
+      if (nextStep >= trajectorySteps.length) {
+        return 0;
+      }
+
+      return nextStep;
+    });
   };
 
   const stackVariants: Variants = {
     enter: {
       zIndex: 0,
-      y: 40,          
-      scale: 0.85,    
+      y: 40,
+      scale: 0.85,
       opacity: 0,
-      rotate: -10,    
+      rotate: -10,
     },
     center: {
       zIndex: 1,
       y: 0,
-      scale: 1,       
+      scale: 1,
       opacity: 1,
-      rotate: -2,     
+      rotate: -2,
       transition: {
         type: "spring",
         stiffness: 260,
@@ -46,34 +47,243 @@ export default function SobreNos() {
       }
     },
     exit: {
-      zIndex: 2,      
-      y: -150,      
-      x: 50,          
+      zIndex: 0,
+      x: 300,         // Desliza bem para a direita
+      y: -100,        // E um pouco para cima
+      rotate: 25,     // Gira como se estivesse sendo puxada pelo canto
       opacity: 0,
-      rotate: 5,      
-      scale: 1.05,
+      scale: 0.9,
       transition: {
-        duration: 0.4,
-        ease: "easeOut"
+        duration: 0.5,
+        ease: [0.23, 1, 0.32, 1] // Ease out suave
       }
     }
   };
 
   const teamMembers = [
-    { name: "Sabrina Lima", role: "Fundadora e Coordenadora Geral", dept: "Coordenação Geral" },
-    { name: "Gustavo Sá", role: "UX/UI Designer", dept: "Tecnologia" },
-    { name: "Fernando", role: "Relacionamento Institucional", dept: "Parcerias & Impacto" },
-    { name: "Eduardo Araújo", role: "Desenvolvedor Full Stack", dept: "Tecnologia" },
-    { name: "Maitê", role: "Estratégia e Pesquisa", dept: "Marketing" },
-    { name: "Eduardo Araújo", role: "Desenvolvedor Front-End", dept: "Tecnologia" },
-    { name: "Manuelle", role: "Conteúdo e Social Media", dept: "Marketing" },
-    { name: "Paulo Henrique", role: "Desenvolvedor Full Stack", dept: "Tecnologia" }
+    {
+      name: "Sabrina Lima",
+      role: "Coordenação Geral",
+      dept: "Coordenação Geral",
+      bio: "Sou formada em Marketing pela USP e acredito no poder da educação para transformar vidas. Amo ler suspenses, fazer crochê e estar com amigos e família.",
+      bgColor: "#F5F0FF",
+      textColor: "#4A3B69",
+      image: "/static/team/sabrina.jpg",
+      stickers: ["/static/stickers/4.png", "/static/stickers/36.png", "/static/stickers/22.png"],
+      stickerPositions: [
+        "bottom-[40px] left-[20px] rotate-[-12deg]",
+        "bottom-[115px] right-[25px] rotate-[15deg]",
+        "bottom-[35px] right-[75px] rotate-[5deg]"
+      ]
+    },
+    {
+      name: "Gustavo Sá",
+      role: "Product Designer. Tecnologia",
+      dept: "Tecnologia",
+      bio: "Everything is design.",
+      bgColor: "#EBF2FE",
+      textColor: "#041F4D",
+      image: "/static/team/gustavo.jpg",
+      stickers: ["/static/stickers/29.png", "/static/stickers/34.png", "/static/stickers/14.png"],
+      stickerPositions: [
+        "bottom-[50px] left-[35px] rotate-[-8deg]",
+        "bottom-[110px] right-[15px] rotate-[12deg]",
+        "bottom-[30px] right-[60px] rotate-[22deg]"
+      ]
+    },
+    {
+      name: "Maitê",
+      role: "Líder de Marketing",
+      dept: "Marketing",
+      bio: "Faço Marketing na USP e me apaixonei pelo projeto, muito feliz em tocar isso e fazer o ensino ser mais acessível.",
+      bgColor: "#FFEEFB",
+      textColor: "#DB0B14",
+      image: "/static/team/maite.jpg",
+      stickers: ["/static/stickers/20.png"],
+      stickerPositions: [
+        "bottom-[45px] right-[40px] rotate-[10deg]"
+      ]
+    },
+    {
+      name: "Fernando",
+      role: "Líder Impacto e Parcerias",
+      dept: "Parcerias & Impacto",
+      bio: "Estudante no 5° semestre de Gestão de Políticas Públicas, gosto muito de comunicação e aproveitar cada oportunidade de impacto.",
+      bgColor: "#E5F3EC",
+      textColor: "#004700",
+      image: "/static/team/fernando.jpeg",
+      stickers: ["/static/stickers/12.png", "/static/stickers/34.png", "/static/stickers/31.png"],
+      stickerPositions: [
+        "bottom-[35px] left-[25px] rotate-[-15deg]",
+        "bottom-[120px] right-[30px] rotate-[8deg]",
+        "bottom-[40px] right-[80px] rotate-[18deg]"
+      ]
+    },
+    {
+      name: "Paulo Henrique",
+      role: "Líder de Tecnologia",
+      dept: "Tecnologia",
+      bio: "Mais do que qualquer coisa, acredito que tecnologia deva ser uma ferramenta para mudar mundo para algo melhor.",
+      bgColor: "#FFF9E6",
+      textColor: "#856404",
+      image: "/static/team/paulo.jpg",
+      stickers: [
+        "/static/stickers/21.png",
+        "/static/stickers/21.png",
+        "/static/stickers/21.png",
+        "/static/stickers/21.png"
+      ],
+      stickerPositions: [
+        "bottom-[45px] left-[15px] rotate-[-10deg]",
+        "bottom-[115px] right-[20px] rotate-[15deg]",
+        "bottom-[30px] right-[70px] rotate-[5deg]",
+        "bottom-[100px] left-[35px] rotate-[-18deg]"
+      ]
+    },
+    {
+      name: "Tiago",
+      role: "Analista de Tecnologia",
+      dept: "Tecnologia",
+      bio: "Entusiasta por tecnologia, educação. Movido pela vontade de construir soluções que melhorem a vida das pessoas.",
+      bgColor: "#F5F0FF",
+      textColor: "#4A3B69",
+      image: "/static/team/tiago.jpg",
+      stickers: [
+        "/static/stickers/10.png",
+        "/static/stickers/19.png",
+        "/static/stickers/25.png"
+      ],
+      stickerPositions: [
+        "bottom-[30px] left-[30px] rotate-[-12deg]",
+        "bottom-[105px] right-[25px] rotate-[15deg]",
+        "bottom-[45px] right-[65px] rotate-[8deg]"
+      ]
+    },
+    {
+      name: "Ivan",
+      role: "Analista de Tecnologia",
+      dept: "Tecnologia",
+      bio: "Sou recifense, apaixonado por cinema, música e tecnologia, e estudante de Sistemas de Informação na Universidade de São Paulo. Acredito que a educação de qualidade transforma a sociedade, e que a tecnologia é essencial para democratizar seu acesso.",
+      bgColor: "#EBF2FE",
+      textColor: "#041F4D",
+      image: "/static/team/ivan.jpeg",
+      stickers: [
+        "/static/stickers/4.png",
+        "/static/stickers/36.png",
+        "/static/stickers/22.png"
+      ],
+      stickerPositions: [
+        "bottom-[40px] left-[20px] rotate-[-15deg]",
+        "bottom-[120px] right-[35px] rotate-[10deg]",
+        "bottom-[35px] right-[85px] rotate-[5deg]"
+      ]
+    },
+    {
+      name: "Eloísa",
+      role: "Membro",
+      dept: "Time",
+      bio: "Informações em breve...",
+      bgColor: "#E5F3EC",
+      textColor: "#004700",
+      image: "",
+      stickers: [],
+      stickerPositions: []
+    }
   ];
+
+  function TeamMemberCard({ member }: { member: any }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <div
+        className="relative h-[500px] rounded-[2rem] overflow-hidden cursor-default group shadow-sm hover:shadow-xl transition-all duration-500 p-4"
+        style={{ backgroundColor: member.bgColor }}
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+      >
+        {/* Card Base (Foto e Nome) - Agora com separação clara */}
+        <div className="relative h-full w-full bg-white rounded-[1.5rem] overflow-hidden shadow-inner flex flex-col">
+          {/* Área da Foto: ocupa o espaço disponível acima do nome */}
+          <div className="flex-1 bg-gray-50 group-hover:scale-105 transition-transform duration-700 relative overflow-hidden">
+            {member.image ? (
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 50%" }} // <--- AQUI você controla o enquadramento (ex: focar mais no topo)
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <Users className="w-20 h-20 text-gray-200" />
+              </div>
+            )}
+          </div>
+
+          {/* Área do Nome: Fundo sólido, sem sobrepor a foto */}
+          <div className="p-6 bg-white border-t border-gray-100">
+            <h4 className="font-bold text-lg text-gray-900">{member.name}</h4>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">{member.role}</p>
+          </div>
+        </div>
+
+        {/* Card Overlay (Sobe ao clicar/passar o mouse) */}
+        <motion.div
+          initial={{ y: "100%", boxShadow: "0 0px 0px rgba(0,0,0,0)" }}
+          animate={{
+            y: isOpen ? "0%" : "100%",
+            boxShadow: isOpen ? "0 -15px 40px rgba(0,0,0,0.12)" : "0 0px 0px rgba(0,0,0,0)"
+          }}
+          transition={{ type: "spring", damping: 20, stiffness: 150 }}
+          className="absolute top-[10%] inset-x-0 bottom-0 p-8 flex flex-col justify-start border-t border-white/40 rounded-t-[2.5rem] z-20 overflow-hidden"
+          style={{
+            backgroundColor: member.bgColor,
+            borderLeft: `1px solid ${member.textColor}15`,
+            borderRight: `1px solid ${member.textColor}15`,
+          }}
+        >
+          <div className="mt-2 overflow-y-auto max-h-[70%] pr-2 z-10">
+            <p
+              className="text-[23px] leading-relaxed"
+              style={{
+                fontFamily: '"Bradley Hand", cursive',
+                color: member.textColor,
+                fontWeight: 400,
+                letterSpacing: '0.02em'
+              }}
+            >
+              {member.bio}
+            </p>
+          </div>
+
+          {/* Stickers Espalhados (Dinâmicos por membro, garantindo sem sobrepor texto) */}
+          <div className="absolute inset-0 pointer-events-none z-20">
+             {member.stickers?.map((sticker: string, sIdx: number) => {
+                const pos = member.stickerPositions?.[sIdx] || "bottom-14 right-3 rotate-[10deg]";
+                return (
+                  <div key={sIdx} className={`absolute w-12 h-12 filter drop-shadow-md opacity-90 transition-transform duration-300 ${pos}`}>
+                    <Image src={sticker} alt="sticker" width={48} height={48} className="object-contain" unoptimized />
+                  </div>
+                );
+             })}
+          </div>
+
+          <button
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-[0.3em] opacity-30 z-20"
+            style={{ color: member.textColor }}
+          >
+            Passar o mouse para abrir
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
 
   const trajectorySteps = [
     {
       year: "2024",
       title: "O início: TCC e o Plano de Negócio",
+      bgColor: "#F6EBE8", // Cor original
       content: (
         <>
           <p className="mb-4">
@@ -88,6 +298,7 @@ export default function SobreNos() {
     {
       year: "2024",
       title: "Validação e Pré-incubação",
+      bgColor: "#E5F3EC", // Verde menta suave
       content: (
         <>
           <p className="mb-4">
@@ -113,7 +324,7 @@ export default function SobreNos() {
               Sobre a <span className="text-[#8B3DFF] relative inline-block">
                 Leterizza
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-yellow-400" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
@@ -121,9 +332,13 @@ export default function SobreNos() {
               Democratizando o acesso à educação para transformar o futuro de milhares de estudantes.
             </p>
 
-            {/* Imagem Hero / Glow */}
-            <div className="w-full h-[250px] sm:h-[400px] md:h-[500px] bg-purple-50 rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] flex items-center justify-center overflow-hidden">
-              <span className="text-purple-300 font-bold tracking-widest uppercase">Imagem da Equipe / Projeto</span>
+            {/* Vídeo Manifesto (Placeholder) */}
+            <div className="w-full aspect-video bg-purple-50 rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] flex items-center justify-center overflow-hidden group cursor-pointer hover:shadow-[0_0_80px_rgba(139,61,255,0.25)] transition-all">
+              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors z-10"></div>
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl z-20 group-hover:scale-110 transition-transform">
+                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-[#8B3DFF] border-b-[12px] border-b-transparent ml-2"></div>
+              </div>
+              <span className="absolute bottom-6 text-purple-400 font-bold tracking-widest uppercase z-10 text-sm">Vídeo Manifesto (Espaço Reservado)</span>
             </div>
           </div>
         </section>
@@ -131,8 +346,39 @@ export default function SobreNos() {
         {/* --- NOSSA HISTÓRIA --- */}
         <section className="py-20 px-6">
           <div className="max-w-4xl mx-auto flex flex-col items-start text-left">
-            <div className="inline-block bg-purple-100 text-[#8B3DFF] px-3 py-1 rounded-full text-xs font-bold mb-6 uppercase tracking-wide">
-              Nossa história
+            {/* Título "Quem somos" com parábola amarela */}
+            <div className="flex flex-col items-start mb-8">
+              {/* Caixa do título: 237px largura, texto centralizado dentro */}
+              <div style={{ width: '237px' }}>
+                <h4
+                  style={{
+                    fontFamily: '"Bradley Hand", cursive',
+                    fontSize: '40px',
+                    lineHeight: '56px',
+                    fontWeight: 400,
+                    color: '#000000',
+                    textAlign: 'center',
+                    margin: 0,
+                    padding: 0,
+                    display: 'block',
+                    width: '237px',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  Quem somos
+                </h4>
+                {/* Imagem da Parábola: 219x14, 3px abaixo do texto */}
+                <div style={{ marginTop: '3px', width: '219px', height: '14px', marginLeft: 'auto', marginRight: 'auto', position: 'relative' }}>
+                  {/* Caminho atualizado conforme o arquivo salvo em public/static */}
+                  <Image
+                    src="/static/parabola.png.png"
+                    alt="Detalhe amarelo"
+                    width={219}
+                    height={14}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+              </div>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065] mb-6 leading-tight tracking-tight">
               A Leterizza nasceu do sonho de tornar a educação acessível a todos.
@@ -151,15 +397,15 @@ export default function SobreNos() {
           <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#8B3DFF] to-[#6D28D9] rounded-[2.5rem] p-10 md:p-16 shadow-2xl flex flex-col items-center text-center relative overflow-hidden">
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white rounded-full blur-[100px] opacity-10 pointer-events-none"></div>
             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-yellow-400 rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
-            
+
             <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-10 leading-relaxed z-10">
               "Desejamos que a Leterizza alcance quem mais precisa e seja um lembrete de que a educação não pode ser um privilégio reservado a poucos, mas um direito que precisa chegar a todos."
             </p>
-            
+
             <div className="flex items-center gap-4 z-10">
               <div className="w-14 h-14 rounded-full bg-white/20 border-2 border-white/50 overflow-hidden relative shadow-md flex items-center justify-center backdrop-blur-sm">
-                 <span className="text-white font-bold">SL</span>
-                 {/* Avatar <Image src="..." fill alt="..." /> */}
+                <span className="text-white font-bold">SL</span>
+                {/* Avatar <Image src="..." fill alt="..." /> */}
               </div>
               <div className="text-left">
                 <p className="text-white font-bold text-sm md:text-base">Sabrina Lima</p>
@@ -175,7 +421,7 @@ export default function SobreNos() {
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
               Nosso <span className="text-[#8B3DFF] relative inline-block">propósito
                 <svg className="absolute -bottom-2 left-0 w-full h-2 text-yellow-400" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                  <path d="M2 8C25 2 75 2 98 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <path d="M2 8C25 2 75 2 98 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
@@ -217,7 +463,7 @@ export default function SobreNos() {
         {/* --- NOSSA TRAJETÓRIA --- */}
         <section className="py-20 px-6 max-w-7xl mx-auto" id="trajetoria">
           <div className="bg-gradient-to-br from-[#F5F0FF] to-[#E6D4FF] rounded-[2rem] p-8 md:p-16 flex flex-col lg:flex-row items-start gap-12 border border-purple-100 shadow-sm relative overflow-hidden">
-            
+
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500 rounded-full blur-[120px] opacity-20 pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
 
             {/* Lado Esquerdo - Textos */}
@@ -225,7 +471,7 @@ export default function SobreNos() {
               <h2 className="text-4xl md:text-5xl font-bold text-[#2E1065] mb-6 inline-block relative">
                 Nossa trajetória
                 <svg className="absolute -bottom-3 left-0 w-full h-3 text-yellow-400" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </h2>
               <p className="text-[#4A3B69] text-lg md:text-xl font-medium mt-4 max-w-sm mx-auto lg:mx-0">
@@ -235,34 +481,37 @@ export default function SobreNos() {
 
             {/* Lado Direito - Cards e Slider */}
             <div className="flex-1 w-full max-w-lg relative z-10 flex flex-col mt-10 lg:mt-0">
-          
+
               <div className="relative w-full">
-                
-                <div className="absolute inset-0 bg-[#E5F3EC] rounded-2xl transform rotate-[-4deg] border border-green-100 shadow-sm origin-bottom-left"></div>
-                <div className="absolute inset-0 bg-white rounded-2xl transform rotate-[3deg] border border-gray-100 shadow-sm origin-bottom-right"></div>
-                
+
+                <div className="absolute inset-0 bg-[#E5F3EC] rounded-2xl transform rotate-[-7deg] border border-green-100 shadow-sm origin-bottom-left"></div>
+                <div className="absolute inset-0 bg-white rounded-2xl transform rotate-[5deg] border border-gray-100 shadow-sm origin-bottom-right"></div>
+
                 <div className="relative w-full z-10 grid" style={{ gridTemplateAreas: "'cardArea'" }}>
                   <AnimatePresence initial={false}>
                     <motion.div
                       key={currentStep}
                       variants={stackVariants}
                       initial="enter"
-                      animate="center" 
-                      style={{ gridArea: 'cardArea' }}
-                      className="bg-[#F6EBE8] rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full min-h-[380px] flex flex-col transform-gpu origin-bottom"
+                      animate="center"
+                      className="rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full h-[530px] flex flex-col transform-gpu origin-bottom"
+                      style={{ 
+                        gridArea: 'cardArea',
+                        backgroundColor: trajectorySteps[currentStep].bgColor 
+                      }}
                     >
                       <div className="bg-[#2B2B2B] w-10 h-10 rounded-md flex items-center justify-center mb-6 shrink-0">
                         <GraduationCap className="text-white w-6 h-6" />
                       </div>
-                      
+
                       <span className="text-gray-600 font-bold text-sm mb-2 block">
                         {trajectorySteps[currentStep].year}
                       </span>
-                      
+
                       <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight">
                         {trajectorySteps[currentStep].title}
                       </h3>
-                      
+
                       <div className="text-gray-700 text-sm md:text-base leading-relaxed pb-8">
                         {trajectorySteps[currentStep].content}
                       </div>
@@ -274,14 +523,14 @@ export default function SobreNos() {
 
               {/* Botões de Navegação */}
               <div className="flex justify-end gap-3 mt-8 z-20 relative">
-                <button 
+                <button
                   onClick={() => paginate(-1)}
                   className="w-10 h-10 rounded-full bg-[#8B3DFF] text-white flex items-center justify-center hover:bg-purple-700 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
                   aria-label="Passo anterior"
                 >
                   <ArrowLeft className="w-5 h-5" />
                 </button>
-                <button 
+                <button
                   onClick={() => paginate(1)}
                   className="w-10 h-10 rounded-full bg-[#8B3DFF] text-white flex items-center justify-center hover:bg-purple-700 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
                   aria-label="Próximo passo"
@@ -290,7 +539,7 @@ export default function SobreNos() {
                 </button>
               </div>
             </div>
-            
+
           </div>
         </section>
 
@@ -298,39 +547,21 @@ export default function SobreNos() {
         <section className="py-20 px-6 mb-20 max-w-7xl mx-auto" id="equipe">
           <div className="text-center mb-16 flex flex-col items-center">
             <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-xs font-bold mb-4 uppercase tracking-wide">
-              <Users className="w-3 h-3"/> Nosso time
+              <Users className="w-3 h-3" /> Nosso time
             </div>
-            
+
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4 leading-tight">
               Quem faz a Leterizza <span className="text-[#2E1065] relative inline-block">acontecer
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-yellow-400" viewBox="0 0 200 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
-
-            <p className="text-gray-600 text-base md:text-lg mb-2 max-w-2xl leading-relaxed">
-              Um time jovem, criativo e apaixonado por impacto social.
-            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, idx) => (
-              <div key={idx} className="flex flex-col group bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden relative p-6 group-hover:border-purple-200 transition-colors group-hover:shadow-md">
-                
-                {/* Placeholder da Foto da Equipe */}
-                <div className="w-full aspect-square bg-gray-50 rounded-2xl mb-4 overflow-hidden relative border border-gray-100">
-                  {/* <Image src={`/static/equipe/${idx}.jpg`} fill className="object-cover" alt={member.name} /> */}
-                </div>
-                
-                {/* Informações do Membro */}
-                <div className="flex-1 flex flex-col pr-12 relative text-left"> 
-                  <p className="text-gray-900 text-sm font-semibold mt-1">{member.name}</p>
-                  <p className="text-gray-600 text-xs mt-1">{member.role}</p>
-                  <p className="text-purple-500 text-[10px] mt-1 uppercase font-bold">{member.dept}</p>
-                </div>
-
-              </div>
+              <TeamMemberCard key={idx} member={member} />
             ))}
           </div>
         </section>

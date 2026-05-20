@@ -38,6 +38,9 @@ export function Footer() {
             <Link href="/sobre" className="text-primary-100 hover:text-white transition-colors">
               Sobre nós
             </Link>
+            <Link href="/blog" className="text-primary-100 hover:text-white transition-colors">
+              Blog
+            </Link>
             <Link href="#funcionalidades" className="text-primary-100 hover:text-white transition-colors">
               Funcionalidades
             </Link>
@@ -64,8 +67,9 @@ export function Footer() {
 
         <div className="w-full border-t border-primary-800 mt-12 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
           
-          <div className="text-sm text-primary-200 text-center md:text-left">
-            © {new Date().getFullYear()} Leterizza. Todos os direitos reservados.
+          <div className="text-sm text-primary-200 text-center md:text-left flex flex-col gap-1">
+            <span>© {new Date().getFullYear()} Leterizza. Todos os direitos reservados.</span>
+            <span className="text-primary-400/80 text-xs">Desenvolvido com carinho por Gustavo, Eduardo e Paulo.</span>
           </div>
           
           <div className="flex gap-6">

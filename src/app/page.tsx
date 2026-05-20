@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SectionLabel } from '@/components/ui/SectionComponents';
@@ -7,6 +9,12 @@ import {
   Gamepad2, BookOpen, Lock, Bell, Zap, Trophy,
   ArrowRight
 } from 'lucide-react';
+import { LandingPageForm } from '@/components/forms/LandingPageForm';
+
+export const metadata: Metadata = {
+  title: "Leterizza | Preparação Gratuita e Gamificada para Vestibulares",
+  description: "Prepare-se para o ENEM e outros vestibulares sem gastar uma fortuna! A Leterizza é a plataforma gratuita que democratiza o acesso ao ensino superior.",
+};
 
 export default function Home() {
   return (
@@ -16,12 +24,114 @@ export default function Home() {
       <main>
         {/* --- HERO SECTION --- */}
         <section className="relative pt-40 md:pt-52 pb-20 px-6 text-center overflow-hidden">
-            {/* Post-its Flutuantes Decorativos */}
-            <div className="absolute top-40 left-[5%] md:left-[10%] hidden lg:block -rotate-6 bg-blue-50 p-4 rounded-xl shadow-md border border-blue-100 w-48 text-sm text-blue-800 font-medium z-0">
-               Cronograma de estudos para amanhã...
+          <div className="max-w-6xl mx-auto relative w-full">
+            
+            {/* Grupo de Post-its da Esquerda (1, 2, 3) */}
+            <div className="absolute top-2 left-[-40px] xl:left-[15px] hidden lg:block z-0 w-[240px] h-[400px] select-none pointer-events-none">
+              {/* Post-it 1 */}
+              <div className="absolute top-0 left-0 w-48 h-48 rotate-[-13deg] filter drop-shadow-sm">
+                <Image
+                  src="/static/postit/nota1.png"
+                  alt="Post-it sobre química"
+                  fill
+                  className="object-contain"
+                  priority
+                  quality={100}
+                />
+                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#4A3B69] font-bold text-[19px] sm:text-[21px] text-center leading-none tracking-wide">
+                    estudar quimica orgânica
+                  </p>
+                </div>
+              </div>
+
+              {/* Post-it 2 */}
+              <div className="absolute top-[105px] left-[45px] w-44 h-44 rotate-[5deg] filter drop-shadow-sm">
+                <Image
+                  src="/static/postit/nota2.png"
+                  alt="Post-it sobre botânica"
+                  fill
+                  className="object-contain"
+                  priority
+                  quality={100}
+                />
+                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#374151] font-bold text-[15px] sm:text-[17px] text-center leading-tight tracking-wide">
+                    Tirar dúvidas com o professor sobre botânica
+                  </p>
+                </div>
+              </div>
+
+              {/* Post-it 3 */}
+              <div className="absolute top-[210px] left-[0px] w-48 h-48 rotate-[-10deg] filter drop-shadow-sm">
+                <Image
+                  src="/static/postit/nota3.png"
+                  alt="Post-it sobre matemática"
+                  fill
+                  className="object-contain"
+                  priority
+                  quality={100}
+                />
+                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#1E3A8A] font-bold text-[16px] sm:text-[18px] text-center leading-snug tracking-wide">
+                    Fazer exercícios da lista de matemática
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="absolute top-52 right-[5%] md:right-[10%] hidden lg:block rotate-12 bg-green-50 p-4 rounded-xl shadow-md border border-green-100 w-48 text-sm text-green-800 font-medium z-0">
-               Tirar dúvidas com o professor sobre botânica
+            
+            {/* Grupo de Post-its da Direita (4, 5, 6) */}
+            <div className="absolute top-48 right-[-10px] xl:right-[35px] hidden lg:block z-0 w-[260px] h-[400px] select-none pointer-events-none">
+              {/* Post-it 4 */}
+              <div className="absolute top-0 right-[15px] w-48 h-48 rotate-[3deg] filter drop-shadow-sm">
+                <Image
+                  src="/static/postit/nota4.png"
+                  alt="Post-it sobre química"
+                  fill
+                  className="object-contain"
+                  priority
+                  quality={100}
+                />
+                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#713F12] font-bold text-[19px] sm:text-[21px] text-center leading-none tracking-wide">
+                    Estudar química orgânica
+                  </p>
+                </div>
+              </div>
+
+              {/* Post-it 5 */}
+              <div className="absolute top-[105px] right-[45px] w-48 h-48 rotate-[-6deg] filter drop-shadow-sm z-10">
+                <Image
+                  src="/static/postit/nota5.png"
+                  alt="Post-it sobre matemática"
+                  fill
+                  className="object-contain"
+                  priority
+                  quality={100}
+                />
+                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#9D174D] font-bold text-[17px] sm:text-[19px] text-center leading-snug tracking-wide">
+                    Fazer exercícios da lista de matemática
+                  </p>
+                </div>
+              </div>
+
+              {/* Post-it 6 */}
+              <div className="absolute top-[210px] right-[0px] w-48 h-48 rotate-[8deg] filter drop-shadow-sm">
+                <Image
+                  src="/static/postit/nota6.png"
+                  alt="Post-it sobre botânica"
+                  fill
+                  className="object-contain"
+                  priority
+                  quality={100}
+                />
+                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#064E3B] font-bold text-[15px] sm:text-[17px] text-center leading-tight tracking-wide">
+                    Tirar dúvidas com o professor sobre botânica
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="max-w-4xl mx-auto relative z-10">
@@ -74,6 +184,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
+          </div>
         </section>
 
         {/* --- PROBLEMA --- */}
@@ -355,33 +467,8 @@ export default function Home() {
                     </ul>
                 </div>
 
-                <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl w-full max-w-md lg:max-w-lg text-gray-900 shadow-2xl relative z-10 mt-4 md:mt-0">
-                    <form className="space-y-4 sm:space-y-5 text-left">
-                        <div>
-                            <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Nome completo</label>
-                            <input type="text" placeholder="Digite seu nome completo" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all" />
-                        </div>
-                        <div>
-                            <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Seu melhor e-mail</label>
-                            <input type="email" placeholder="Digite seu e-mail" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all" />
-                        </div>
-                        <div>
-                            <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Nível acadêmico</label>
-                            <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none text-gray-600 transition-all">
-                                <option>Selecione o seu nível</option>
-                                <option>Ensino Médio</option>
-                                <option>Pré-Vestibular</option>
-                            </select>
-                        </div>
-                        
-                        <p className="text-[10px] text-gray-500 leading-relaxed py-2">
-                            Ao se cadastrar, você concorda em receber e-mails sobre a Leterizza. Você pode cancelar a qualquer momento.
-                        </p>
-
-                        <button type="submit" className="w-full bg-[#8B3DFF] text-white font-extrabold text-base py-4 rounded-xl hover:bg-purple-700 transition-colors shadow-lg shadow-purple-200 mt-2">
-                            Quero testar GRÁTIS
-                        </button>
-                    </form>
+                <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl w-full max-w-md lg:max-w-lg text-gray-900 shadow-2xl relative z-10 mt-4 md:mt-0 min-h-[400px] flex flex-col justify-center">
+                    <LandingPageForm />
                 </div>
             </div>
         </section>

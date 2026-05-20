@@ -1,37 +1,16 @@
-import { Mail, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Metadata } from 'next';
+import { Mail, Instagram, Linkedin } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { ContactForm } from '@/components/forms/ContactForm';
 
-// --- COMPONENTE AUXILIAR PARA OS CAMPOS DO FORMULÁRIO ---
-function FormField({ label, id, placeholder, type = 'text' }: { label: string, id: string, placeholder: string, type?: string }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-neutral-950 text-sm md:text-base font-bold">
-        {label}
-      </label>
-      <input 
-        type={type} 
-        id={id} 
-        name={id}
-        placeholder={placeholder}
-        className="w-full bg-white border border-neutral-200 text-neutral-900 text-sm md:text-base font-normal rounded-full px-5 py-3 placeholder:text-neutral-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors"
-      />
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: "Contato | Leterizza",
+  description: "Fale com a Leterizza! Entre em contato para tirar dúvidas, sugerir parcerias ou compartilhar ideias sobre democratização de vestibulares.",
+};
 
 // --- PÁGINA PRINCIPAL ---
 export default function ContatoPage() {
-  const formFields = [
-    { label: "Nome completo", id: "nome", placeholder: "Digite o seu nome completo" },
-    { label: "E-mail para contato", id: "email", placeholder: "Digite o seu e-mail", type: 'email' },
-    { label: "Telefone/WhatsApp (opcional)", id: "telefone", placeholder: "Digite o seu telefone", type: 'tel' },
-    { label: "Você é:", id: "perfil", placeholder: "Ex: Estudante, Educador..." },
-    { label: "Cidade e estado", id: "localizacao", placeholder: "Sua cidade e estado" },
-    { label: "Como conheceu a Leterizza?", id: "origem", placeholder: "Nos conte como nos achou" },
-    { label: "Qual o motivo do seu contato", id: "motivo", placeholder: "Assunto do contato" },
-  ];
-
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-950 font-sans flex flex-col">
       <Header />
@@ -74,52 +53,7 @@ export default function ContatoPage() {
 
           
             <div className="flex-1 p-4 md:p-8 lg:p-12 z-10 flex flex-col justify-center lg:items-end">
-              <div className="bg-white rounded-3xl p-6 md:p-8 w-full max-w-lg shadow-lg">
-                
-                <form className="flex flex-col gap-5">
-                
-                  {formFields.map((field) => (
-                    <FormField key={field.id} {...field} />
-                  ))}
-
-                
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="mensagem" className="text-neutral-950 text-sm md:text-base font-bold">
-                      Mensagem detalhada
-                    </label>
-                    <textarea 
-                      id="mensagem" 
-                      name="mensagem"
-                      placeholder="Escreva sua mensagem aqui"
-                      rows={4}
-                      className="w-full bg-white border border-neutral-200 text-neutral-900 text-sm md:text-base font-normal rounded-2xl px-5 py-4 placeholder:text-neutral-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 resize-none transition-colors"
-                    />
-                  </div>
-
-                 
-                  <div className="flex flex-col gap-2 mt-2">
-                    <label htmlFor="novidades" className="text-neutral-950 text-sm md:text-base font-bold">
-                      Você gostaria de receber novidades e conteúdos da Leterizza?
-                    </label>
-                    <input 
-                      type="text" 
-                      id="novidades" 
-                      name="novidades"
-                      placeholder="Sim ou Não"
-                      className="w-full bg-white border border-neutral-200 text-neutral-900 text-sm md:text-base font-normal rounded-full px-5 py-3 placeholder:text-neutral-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors mb-2"
-                    />
-                    <p className="text-neutral-500 text-xs md:text-sm font-normal text-center px-4 leading-relaxed">
-                      Ao se cadastrar, você concorda em receber e-mails sobre a Leterizza. Você pode cancelar a qualquer momento.
-                    </p>
-                  </div>
-
-                 
-                  <button type="submit" className="mt-4 bg-primary-500 text-white text-base md:text-lg font-bold w-full py-4 rounded-full hover:bg-primary-600 hover:-translate-y-1 transition-all duration-300 shadow-md shadow-primary-200">
-                    Enviar
-                  </button>
-                </form>
-
-              </div>
+              <ContactForm />
             </div>
           </div>
         </section>
