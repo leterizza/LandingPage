@@ -82,7 +82,7 @@ export function ContactForm() {
         let errorData;
         try {
           errorData = JSON.parse(errorText);
-        } catch (_) {
+        } catch {
           errorData = { raw: errorText };
         }
         console.error("HubSpot Submission Error (Detalhado):", JSON.stringify(errorData, null, 2));
@@ -90,6 +90,7 @@ export function ContactForm() {
         setStatus('error');
       }
     } catch (err) {
+      console.error("Connection error during form submission:", err);
       setErrorMessage('Falha na conexão. Verifique sua internet e tente novamente.');
       setStatus('error');
     }

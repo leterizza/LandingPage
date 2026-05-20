@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Linkedin, Youtube, Mail, Phone } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, Mail } from 'lucide-react';
 
 export function Footer() {
   return (

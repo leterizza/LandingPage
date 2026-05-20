@@ -7,12 +7,24 @@ import Image from 'next/image';
 import { Users, ArrowLeft, ArrowRight, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
+interface Member {
+  name: string;
+  role: string;
+  dept: string;
+  bio: string;
+  bgColor: string;
+  textColor: string;
+  image: string;
+  stickers: string[];
+  stickerPositions: string[];
+}
+
 export default function SobreNos() {
   const [currentStep, setCurrentStep] = useState(0);
 
   const paginate = (direction: number) => {
     setCurrentStep((prev) => {
-      let nextStep = prev + direction;
+      const nextStep = prev + direction;
 
       if (nextStep < 0) {
         return trajectorySteps.length - 1;
@@ -191,7 +203,7 @@ export default function SobreNos() {
     }
   ];
 
-  function TeamMemberCard({ member }: { member: any }) {
+  function TeamMemberCard({ member }: { member: Member }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -399,7 +411,7 @@ export default function SobreNos() {
             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-yellow-400 rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
 
             <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-10 leading-relaxed z-10">
-              "Desejamos que a Leterizza alcance quem mais precisa e seja um lembrete de que a educação não pode ser um privilégio reservado a poucos, mas um direito que precisa chegar a todos."
+              &ldquo;Desejamos que a Leterizza alcance quem mais precisa e seja um lembrete de que a educação não pode ser um privilégio reservado a poucos, mas um direito que precisa chegar a todos.&rdquo;
             </p>
 
             <div className="flex items-center gap-4 z-10">
