@@ -38,9 +38,6 @@ export function Footer() {
             <Link href="/sobre" className="text-primary-100 hover:text-white transition-colors">
               Sobre nós
             </Link>
-            <Link href="/blog" className="text-primary-100 hover:text-white transition-colors">
-              Blog
-            </Link>
             <Link href="#funcionalidades" className="text-primary-100 hover:text-white transition-colors">
               Funcionalidades
             </Link>

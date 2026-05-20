@@ -96,10 +96,7 @@ export function Header() {
           <Link href="/sobre" className={`transition-colors duration-300 ${getDesktopLinkClass('/sobre')}`}>
             Sobre nós
           </Link>
-          
-          <Link href="/blog" className={`transition-colors duration-300 ${getDesktopLinkClass('/blog')}`}>
-            Blog
-          </Link>
+
           
           <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#funcionalidades', true)}`} title="Em breve">
             Funcionalidades
@@ -163,10 +160,6 @@ export function Header() {
           <nav className="flex flex-col gap-6 text-lg font-bold mb-auto">
             <Link href="/sobre" onClick={toggleMobileMenu} className={getMobileLinkClass('/sobre')}>
               Sobre nós
-            </Link>
-
-            <Link href="/blog" onClick={toggleMobileMenu} className={getMobileLinkClass('/blog')}>
-              Blog
             </Link>
             
             <span className={`select-none ${getMobileLinkClass('#funcionalidades', true)}`} title="Em breve">
