@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from 'react';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { Loader2, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 // Componente para campos de texto simples
 function FormField({ label, id, placeholder, type = 'text', required = false }: {
   label: string; id: string; placeholder: string; type?: string; required?: boolean;
 }) {
   return (
-    <div className="flex flex-col gap-1.5 sm:gap-2">
-      <label htmlFor={id} className="text-neutral-950 text-xs sm:text-sm font-extrabold uppercase tracking-wide ml-1 text-[#2E1065]">
+    <div>
+      <label htmlFor={id} className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input
@@ -18,7 +18,7 @@ function FormField({ label, id, placeholder, type = 'text', required = false }: 
         name={id}
         required={required}
         placeholder={placeholder}
-        className="w-full bg-gray-50 border border-gray-200 text-neutral-900 text-sm md:text-base font-normal rounded-xl px-4 py-3.5 placeholder:text-neutral-400 focus:border-[#8B3DFF] focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all outline-none"
+        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all"
       />
     </div>
   );
@@ -98,15 +98,17 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-green-50 rounded-3xl p-8 w-full max-w-lg shadow-lg flex flex-col items-center justify-center min-h-[450px] text-center gap-4 border border-green-100 shadow-inner">
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-4xl mb-2 shadow-md">✅</div>
-        <h3 className="text-3xl font-extrabold text-green-900 leading-tight">Mensagem enviada com sucesso!</h3>
-        <p className="text-green-700 text-base font-medium leading-relaxed max-w-md">
+      <div className="bg-green-50 rounded-3xl p-8 flex flex-col items-center justify-center text-center w-full max-w-lg min-h-[450px] border border-green-100 shadow-inner">
+        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 shadow-md">
+          <CheckCircle2 className="w-10 h-10" />
+        </div>
+        <h3 className="text-3xl font-extrabold text-green-900 mb-3 leading-tight">Mensagem enviada!</h3>
+        <p className="text-green-700 font-medium text-lg leading-relaxed max-w-md">
           Agradecemos o contato. Nossa equipe vai analisar sua mensagem e retornar o mais breve possível.
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="mt-6 font-bold text-[#8B3DFF] text-sm tracking-wide uppercase bg-white px-6 py-3 rounded-xl border border-purple-200 hover:bg-purple-50 transition-all shadow-sm"
+          className="mt-6 font-bold text-[#8B3DFF] text-sm tracking-wide bg-white px-6 py-3 rounded-xl border border-purple-200 hover:bg-purple-50 transition-all shadow-sm"
         >
           Enviar outra mensagem
         </button>
@@ -123,8 +125,8 @@ export function ContactForm() {
   ];
 
   return (
-    <div className="bg-white rounded-3xl p-6 md:p-8 lg:p-10 w-full max-w-lg shadow-2xl border border-gray-100">
-      <form className="flex flex-col gap-5 sm:gap-6" onSubmit={handleSubmit}>
+    <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl w-full max-w-lg text-gray-900 shadow-2xl border border-gray-100 relative z-10 flex flex-col justify-center">
+      <form className="space-y-4 sm:space-y-5 text-left w-full" onSubmit={handleSubmit}>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField label="Nome" id="nome" placeholder="Seu primeiro nome" required />
@@ -135,11 +137,11 @@ export function ContactForm() {
         <FormField label="LinkedIn (opcional)" id="linkedin" placeholder="Coloque seu LinkedIn (caso tenha)" />
 
         {/* Motivo do Contato / Interesse (Bolinhas/Rádio) */}
-        <div className="flex flex-col gap-2 pt-1">
-          <label className="text-neutral-950 text-xs sm:text-sm font-extrabold uppercase tracking-wide ml-1 text-[#2E1065]">
+        <div className="pt-1">
+          <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">
             Qual o motivo do seu contato? <span className="text-red-500">*</span>
           </label>
-          <div className="flex flex-col gap-2.5 mt-1 bg-gray-50/70 p-4 rounded-2xl border border-gray-100">
+          <div className="flex flex-col gap-2.5 mt-2 bg-gray-50/70 p-4 rounded-xl border border-gray-100">
             {opcoesInteresse.map((opcao) => (
               <label key={opcao} className="flex items-center gap-3 cursor-pointer group leading-snug">
                 <input
@@ -147,9 +149,9 @@ export function ContactForm() {
                   type="radio"
                   name="interesse"
                   value={opcao}
-                  className="w-4 h-4 text-purple-600 accent-[#8B3DFF] focus:ring-purple-500 border-gray-300 cursor-pointer shrink-0"
+                  className="w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer shrink-0"
                 />
-                <span className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors">
+                <span className="text-xs text-gray-600 font-medium group-hover:text-gray-900 transition-colors">
                   {opcao}
                 </span>
               </label>
@@ -158,8 +160,8 @@ export function ContactForm() {
         </div>
 
         {/* Mensagem */}
-        <div className="flex flex-col gap-1.5 sm:gap-2">
-          <label htmlFor="mensagem" className="text-neutral-950 text-xs sm:text-sm font-extrabold uppercase tracking-wide ml-1 text-[#2E1065]">
+        <div>
+          <label htmlFor="mensagem" className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">
             Escreva sua mensagem <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -168,7 +170,7 @@ export function ContactForm() {
             name="mensagem"
             placeholder="Conte um pouco mais sobre o motivo do seu contato..."
             rows={4}
-            className="w-full bg-gray-50 border border-gray-200 text-neutral-900 text-sm md:text-base font-normal rounded-2xl px-4 py-3.5 placeholder:text-neutral-400 focus:border-[#8B3DFF] focus:outline-none focus:ring-2 focus:ring-purple-400 resize-none transition-all outline-none"
+            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none transition-all outline-none"
           />
         </div>
 
@@ -178,9 +180,9 @@ export function ContactForm() {
             A Leterizza tem o compromisso de proteger e respeitar sua privacidade e nós usaremos suas informações pessoais somente para administrar sua conta e fornecer os produtos e serviços que você nos solicitou.
           </p>
           
-          <label className="flex items-start gap-3 cursor-pointer group bg-gray-50/50 p-3 rounded-xl border border-transparent hover:border-gray-100 transition-colors">
-            <input type="checkbox" name="comunicacoes" className="mt-0.5 w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer shrink-0 accent-[#8B3DFF]" />
-            <span className="text-xs text-gray-700 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
+          <label className="flex items-start gap-3 cursor-pointer group bg-gray-50/50 p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
+            <input type="checkbox" name="comunicacoes" className="mt-1 w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer shrink-0" />
+            <span className="text-xs text-gray-600 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
               Eu concordo em receber outras comunicações da Leterizza.
             </span>
           </label>
@@ -189,14 +191,14 @@ export function ContactForm() {
             Para fornecer o conteúdo solicitado, precisamos armazenar e processar seus dados pessoais. Se você consentir com o armazenamento dos seus dados pessoais para essa finalidade, marque a caixa de seleção abaixo.
           </p>
 
-          <label className="flex items-start gap-3 cursor-pointer group bg-gray-50/50 p-3 rounded-xl border border-transparent hover:border-gray-100 transition-colors">
-            <input required type="checkbox" name="dados_pessoais" className="mt-0.5 w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer shrink-0 accent-[#8B3DFF]" />
-            <span className="text-xs text-gray-700 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
+          <label className="flex items-start gap-3 cursor-pointer group bg-gray-50/50 p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
+            <input required type="checkbox" name="dados_pessoais" className="mt-1 w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer shrink-0" />
+            <span className="text-xs text-gray-600 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
               Eu concordo em permitir que a Leterizza armazene e processe meus dados pessoais.*
             </span>
           </label>
 
-          <p className="text-[11px] text-gray-400 leading-relaxed pt-2">
+          <p className="text-[10px] text-gray-400 leading-relaxed py-1 border-t border-gray-100 mt-4 pt-4">
             Você pode cancelar o recebimento dessas comunicações quando quiser. Para obter mais informações sobre esse cancelamento, nossas práticas de privacidade e nosso compromisso em proteger e respeitar sua privacidade, confira nossa Política de Privacidade.
           </p>
         </div>
@@ -212,7 +214,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full bg-[#8B3DFF] text-white font-extrabold text-base py-4 rounded-xl hover:bg-purple-700 transition-colors shadow-lg shadow-purple-200 mt-4 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed uppercase tracking-wide"
+          className="w-full bg-[#8B3DFF] text-white font-extrabold text-base py-4 rounded-xl hover:bg-purple-700 transition-colors shadow-lg shadow-purple-200 mt-4 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {status === 'loading' ? (
             <><Loader2 className="w-5 h-5 animate-spin" /> Enviando dados...</>

@@ -25,9 +25,9 @@ export default function Home() {
           <div className="max-w-6xl mx-auto relative w-full">
             
             {/* Grupo de Post-its da Esquerda (1, 2, 3) */}
-            <div className="absolute top-2 left-[-40px] xl:left-[15px] hidden lg:block z-0 w-[240px] h-[400px] select-none pointer-events-none">
+            <div className="absolute top-[10px] md:top-2 left-[-60px] sm:left-[-40px] xl:left-[15px] block z-0 w-[140px] sm:w-[180px] lg:w-[240px] h-[300px] lg:h-[400px] select-none pointer-events-none">
               {/* Post-it 1 */}
-              <div className="absolute top-0 left-0 w-48 h-48 rotate-[-13deg] filter drop-shadow-sm">
+              <div className="absolute top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[-13deg] filter drop-shadow-sm">
                 <Image
                   src="/static/postit/nota1.png"
                   alt="Post-it sobre química"
@@ -36,15 +36,15 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#4A3B69] font-bold text-[19px] sm:text-[21px] text-center leading-none tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#4A3B69] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
                     estudar quimica orgânica
                   </p>
                 </div>
               </div>
 
               {/* Post-it 2 */}
-              <div className="absolute top-[105px] left-[45px] w-44 h-44 rotate-[5deg] filter drop-shadow-sm">
+              <div className="absolute top-[60px] left-[25px] sm:top-[80px] sm:left-[35px] lg:top-[105px] lg:left-[45px] w-24 h-24 sm:w-32 sm:h-32 lg:w-44 lg:h-44 rotate-[5deg] filter drop-shadow-sm">
                 <Image
                   src="/static/postit/nota2.png"
                   alt="Post-it sobre botânica"
@@ -53,15 +53,15 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#374151] font-bold text-[15px] sm:text-[17px] text-center leading-tight tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#374151] font-bold text-[9px] sm:text-[13px] lg:text-[15px] xl:text-[17px] text-center leading-tight tracking-wide">
                     Tirar dúvidas com o professor sobre botânica
                   </p>
                 </div>
               </div>
 
               {/* Post-it 3 */}
-              <div className="absolute top-[210px] left-[0px] w-48 h-48 rotate-[-10deg] filter drop-shadow-sm">
+              <div className="absolute top-[120px] left-[0px] sm:top-[160px] sm:left-[0px] lg:top-[210px] lg:left-[0px] w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[-10deg] filter drop-shadow-sm">
                 <Image
                   src="/static/postit/nota3.png"
                   alt="Post-it sobre matemática"
@@ -70,8 +70,8 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#1E3A8A] font-bold text-[16px] sm:text-[18px] text-center leading-snug tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#1E3A8A] font-bold text-[10px] sm:text-[14px] lg:text-[16px] xl:text-[18px] text-center leading-snug tracking-wide">
                     Fazer exercícios da lista de matemática
                   </p>
                 </div>
@@ -79,9 +79,9 @@ export default function Home() {
             </div>
             
             {/* Grupo de Post-its da Direita (4, 5, 6) */}
-            <div className="absolute top-48 right-[-10px] xl:right-[35px] hidden lg:block z-0 w-[260px] h-[400px] select-none pointer-events-none">
+            <div className="absolute top-36 md:top-48 right-[-60px] sm:right-[-40px] xl:right-[35px] block z-0 w-[150px] sm:w-[190px] lg:w-[260px] h-[300px] lg:h-[400px] select-none pointer-events-none">
               {/* Post-it 4 */}
-              <div className="absolute top-0 right-[15px] w-48 h-48 rotate-[3deg] filter drop-shadow-sm">
+              <div className="absolute top-0 right-[10px] sm:right-[12px] lg:right-[15px] w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[3deg] filter drop-shadow-sm">
                 <Image
                   src="/static/postit/nota4.png"
                   alt="Post-it sobre química"
@@ -90,15 +90,15 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#713F12] font-bold text-[19px] sm:text-[21px] text-center leading-none tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#713F12] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
                     Estudar química orgânica
                   </p>
                 </div>
               </div>
 
               {/* Post-it 5 */}
-              <div className="absolute top-[105px] right-[45px] w-48 h-48 rotate-[-6deg] filter drop-shadow-sm z-10">
+              <div className="absolute top-[60px] right-[25px] sm:top-[80px] sm:right-[35px] lg:top-[105px] lg:right-[45px] w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[-6deg] filter drop-shadow-sm z-10">
                 <Image
                   src="/static/postit/nota5.png"
                   alt="Post-it sobre matemática"
@@ -107,15 +107,15 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#9D174D] font-bold text-[17px] sm:text-[19px] text-center leading-snug tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#9D174D] font-bold text-[10px] sm:text-[14px] lg:text-[17px] xl:text-[19px] text-center leading-snug tracking-wide">
                     Fazer exercícios da lista de matemática
                   </p>
                 </div>
               </div>
 
               {/* Post-it 6 */}
-              <div className="absolute top-[210px] right-[0px] w-48 h-48 rotate-[8deg] filter drop-shadow-sm">
+              <div className="absolute top-[120px] right-[0px] sm:top-[160px] sm:right-[0px] lg:top-[210px] lg:right-[0px] w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[8deg] filter drop-shadow-sm">
                 <Image
                   src="/static/postit/nota6.png"
                   alt="Post-it sobre botânica"
@@ -124,8 +124,8 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-8 pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#064E3B] font-bold text-[15px] sm:text-[17px] text-center leading-tight tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#064E3B] font-bold text-[9px] sm:text-[13px] lg:text-[15px] xl:text-[17px] text-center leading-tight tracking-wide">
                     Tirar dúvidas com o professor sobre botânica
                   </p>
                 </div>
