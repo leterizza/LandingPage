@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import Image from 'next/image';
@@ -205,13 +205,25 @@ export default function SobreNos() {
 
   function TeamMemberCard({ member }: { member: Member }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      }
+    }, []);
 
     return (
       <div
         className="relative h-[500px] rounded-[2rem] overflow-hidden cursor-default group shadow-sm hover:shadow-xl transition-all duration-500 p-4"
         style={{ backgroundColor: member.bgColor }}
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
+        onMouseEnter={isTouchDevice ? undefined : () => setIsOpen(true)}
+        onMouseLeave={isTouchDevice ? undefined : () => setIsOpen(false)}
+        onClick={() => {
+          if (isTouchDevice) {
+            setIsOpen((prev) => !prev);
+          }
+        }}
       >
         {/* Card Base (Foto e Nome) - Agora com separação clara */}
         <div className="relative h-full w-full bg-white rounded-[1.5rem] overflow-hidden shadow-inner flex flex-col">
@@ -284,7 +296,9 @@ export default function SobreNos() {
             className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-[0.3em] opacity-30 z-20"
             style={{ color: member.textColor }}
           >
-            Passar o mouse para abrir
+            {isTouchDevice
+              ? (isOpen ? "Toque para fechar" : "Toque para abrir")
+              : (isOpen ? "Tirar o mouse para fechar" : "Passar o mouse para abrir")}
           </button>
         </motion.div>
       </div>
