@@ -91,7 +91,7 @@ export default function Home() {
                   quality={100}
                 />
                 <div className="absolute inset-0 flex items-start justify-center px-4 pt-8 sm:px-6 sm:pt-11 lg:px-8 lg:pt-14">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(-30deg)' }} className="text-[#713F12] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(-12deg)' }} className="text-[#713F12] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
                     Estudar química orgânica
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export default function Home() {
                   quality={100}
                 />
                 <div className="absolute inset-0 flex items-start justify-center px-4 pt-8 sm:px-6 sm:pt-11 lg:px-8 lg:pt-14">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(20deg)' }} className="text-[#9D174D] font-bold text-[10px] sm:text-[14px] lg:text-[17px] xl:text-[19px] text-center leading-snug tracking-wide">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(10deg)' }} className="text-[#9D174D] font-bold text-[10px] sm:text-[14px] lg:text-[17px] xl:text-[19px] text-center leading-snug tracking-wide">
                     Fazer exercícios da lista de matemática
                   </p>
                 </div>
