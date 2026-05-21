@@ -234,6 +234,7 @@ export default function SobreNos() {
                 src={member.image}
                 alt={member.name}
                 fill
+                priority
                 className="object-cover"
                 style={{ objectPosition: "center 50%" }} // <--- AQUI você controla o enquadramento (ex: focar mais no topo)
               />
@@ -268,7 +269,7 @@ export default function SobreNos() {
         >
           <div className="mt-2 overflow-y-auto max-h-[70%] pr-2 z-10">
             <p
-              className="text-[23px] leading-relaxed"
+              className="text-[18px] sm:text-[23px] leading-relaxed"
               style={{
                 fontFamily: '"Bradley Hand", cursive',
                 color: member.textColor,
@@ -285,8 +286,16 @@ export default function SobreNos() {
              {member.stickers?.map((sticker: string, sIdx: number) => {
                 const pos = member.stickerPositions?.[sIdx] || "bottom-14 right-3 rotate-[10deg]";
                 return (
-                  <div key={sIdx} className={`absolute w-12 h-12 filter drop-shadow-md opacity-90 transition-transform duration-300 ${pos}`}>
-                    <Image src={sticker} alt="sticker" width={48} height={48} className="object-contain" unoptimized />
+                  <div key={sIdx} className={`absolute w-8 h-8 sm:w-12 sm:h-12 filter drop-shadow-md opacity-90 transition-transform duration-300 ${pos}`}>
+                    <Image 
+                      src={sticker} 
+                      alt="sticker" 
+                      width={48} 
+                      height={48} 
+                      priority
+                      className="object-contain" 
+                      unoptimized 
+                    />
                   </div>
                 );
              })}
