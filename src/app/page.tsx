@@ -37,7 +37,7 @@ export default function Home() {
                   quality={100}
                 />
                 <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#4A3B69] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(-5.5deg)' }} className="text-[#4A3B69] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
                     estudar quimica orgânica
                   </p>
                 </div>
@@ -90,8 +90,8 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#713F12] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-8 sm:px-6 sm:pt-11 lg:px-8 lg:pt-14">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(11deg)' }} className="text-[#713F12] font-bold text-[11px] sm:text-[15px] lg:text-[19px] xl:text-[21px] text-center leading-none tracking-wide">
                     Estudar química orgânica
                   </p>
                 </div>
@@ -107,8 +107,8 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#9D174D] font-bold text-[10px] sm:text-[14px] lg:text-[17px] xl:text-[19px] text-center leading-snug tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-8 sm:px-6 sm:pt-11 lg:px-8 lg:pt-14">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(-11deg)' }} className="text-[#9D174D] font-bold text-[10px] sm:text-[14px] lg:text-[17px] xl:text-[19px] text-center leading-snug tracking-wide">
                     Fazer exercícios da lista de matemática
                   </p>
                 </div>
@@ -124,8 +124,8 @@ export default function Home() {
                   priority
                   quality={100}
                 />
-                <div className="absolute inset-0 flex items-start justify-center px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-11">
-                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive' }} className="text-[#064E3B] font-bold text-[9px] sm:text-[13px] lg:text-[15px] xl:text-[17px] text-center leading-tight tracking-wide">
+                <div className="absolute inset-0 flex items-start justify-center px-4 pt-8 sm:px-6 sm:pt-11 lg:px-8 lg:pt-14">
+                  <p style={{ fontFamily: 'var(--font-caveat), "Bradley Hand", cursive', transform: 'rotate(5.5deg)' }} className="text-[#064E3B] font-bold text-[9px] sm:text-[13px] lg:text-[15px] xl:text-[17px] text-center leading-tight tracking-wide">
                     Tirar dúvidas com o professor sobre botânica
                   </p>
                 </div>
