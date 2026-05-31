@@ -133,10 +133,6 @@ export default function Home() {
             </div>
 
             <div className="max-w-4xl mx-auto relative z-10">
-                <div className="inline-flex items-center gap-2 bg-[#FFF9F0] text-yellow-700 px-4 py-1.5 rounded-full text-xs font-bold mb-6 border border-yellow-200">
-                    <span>💡</span> Ganhe acesso GRÁTIS à demo e ajude a construir a plataforma!
-                </div>
-                
                 <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-gray-900 leading-tight">
                     Passar no <span className="text-[#8B3DFF] relative inline-block">
                         vestibular
@@ -150,7 +146,7 @@ export default function Home() {
                     A Leterizza é a plataforma que torna a preparação para o vestibular acessível e eficiente.
                 </p>
 
-                <div className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto justify-center">
+                <div className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto justify-center mb-10">
                     <input 
                         type="email" 
                         placeholder="Digite o seu melhor e-mail" 
@@ -159,27 +155,6 @@ export default function Home() {
                     <button className="bg-[#8B3DFF] text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition shadow-lg shadow-purple-200 whitespace-nowrap">
                         Quero testar GRÁTIS
                     </button>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-6 text-sm text-green-600 font-bold">
-                    <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4"/> Sem cartão de crédito</span>
-                    <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4"/> Acesso imediato</span>
-                </div>
-
-                <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 text-center pt-10 max-w-2xl mx-auto">
-                    <div>
-                        <div className="flex justify-center text-yellow-400 mb-2 gap-1">
-                            <Star className="w-5 h-5 fill-current"/><Star className="w-5 h-5 fill-current"/><Star className="w-5 h-5 fill-current"/><Star className="w-5 h-5 fill-current"/><Star className="w-5 h-5 fill-current"/>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="text-2xl font-extrabold text-gray-900">100%</div>
-                        <p className="text-sm font-medium text-gray-500">Gratuito</p>
-                    </div>
-                    <div>
-                        <div className="text-2xl font-extrabold text-gray-900">24/7</div>
-                        <p className="text-sm font-medium text-gray-500">Acesso total</p>
-                    </div>
                 </div>
             </div>
 
