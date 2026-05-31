@@ -398,7 +398,7 @@ export default function Home() {
                     <p className="text-[#5C4D3C] mt-6 text-lg">Estudantes reais, resultados reais</p>
                 </div>
              
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-8">
                      {[
                         {
                             texto: "A organização da plataforma é impecável, muito intuitiva, e todas as funções se integram de um jeito fácil. O cronograma baseado nas semanas até o vestibular é sensacional. Gostei dos gráficos, do agendamento de simulados, dos pontos e do direcionamento para videoaulas dentro da própria plataforma.",
@@ -416,17 +416,17 @@ export default function Home() {
                             tag: "Estudante de cursinho popular"
                         }
                      ].map((dep, idx) => (
-                        <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition duration-300 flex flex-col justify-between">
-                            <p className="text-sm text-gray-700 mb-6 leading-relaxed font-medium italic">
+                        <div key={idx} className="bg-white p-10 md:p-12 rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                            <p className="text-base md:text-[17px] text-gray-700 mb-8 leading-relaxed font-medium italic">
                                 &ldquo;{dep.texto}&rdquo;
                             </p>
-                            <div className="flex items-center gap-3 mt-auto">
-                                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-[#8B3DFF] font-bold">
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-[#8B3DFF] font-extrabold text-base md:text-lg">
                                     D{idx + 1}
                                 </div>
                                 <div>
-                                    <div className="font-extrabold text-gray-900 text-sm">{dep.autor}</div>
-                                    <div className="text-xs text-purple-600 font-bold">{dep.tag}</div>
+                                    <div className="font-extrabold text-gray-900 text-base">{dep.autor}</div>
+                                    <div className="text-sm text-purple-600 font-bold">{dep.tag}</div>
                                 </div>
                             </div>
                         </div>
