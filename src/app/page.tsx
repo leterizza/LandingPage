@@ -398,41 +398,35 @@ export default function Home() {
                     <p className="text-[#5C4D3C] mt-6 text-lg">Estudantes reais, resultados reais</p>
                 </div>
              
-                <div className="flex flex-wrap justify-center gap-12 md:gap-24 text-center mb-16">
-                    <div>
-                        <div className="text-4xl font-black text-gray-900">500+</div>
-                        <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-2">Estudantes testando</div>
-                    </div>
-                    <div>
-                        <div className="text-4xl font-black text-gray-900">4.9/5</div>
-                        <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-2">Avaliação média</div>
-                    </div>
-                    <div>
-                        <div className="text-4xl font-black text-gray-900">95%</div>
-                        <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-2">Recomendam</div>
-                    </div>
-                    <div>
-                        <div className="text-4xl font-black text-gray-900">100%</div>
-                        <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-2">Gratuito</div>
-                    </div>
-                </div>
-            
                 <div className="grid md:grid-cols-3 gap-6">
-                     {[1, 2, 3].map((i) => (
-                        <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                            <div className="flex text-yellow-400 mb-4 gap-1">
-                                <Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/><Star className="w-4 h-4 fill-current"/>
-                            </div>
-                            <p className="text-sm text-gray-700 mb-6 leading-relaxed font-medium">
-                                &ldquo;Finalmente uma plataforma que entende as dificuldades de quem não pode pagar cursinho caro. Estou amando testar cada funcionalidade!&rdquo;
+                     {[
+                        {
+                            texto: "A organização da plataforma é impecável, muito intuitiva, e todas as funções se integram de um jeito fácil. O cronograma baseado nas semanas até o vestibular é sensacional. Gostei dos gráficos, do agendamento de simulados, dos pontos e do direcionamento para videoaulas dentro da própria plataforma.",
+                            autor: "Depoimento 1",
+                            tag: "Estudante de cursinho popular"
+                        },
+                        {
+                            texto: "É um cursinho dentro de um site gratuito, isso é sensacional. A personalização automática do cronograma ajuda muito quem está perdido sobre como começar a estudar.",
+                            autor: "Depoimento 2",
+                            tag: "Estudante de cursinho popular"
+                        },
+                        {
+                            texto: "O cronograma ajuda demais, porque muitos não conseguem montar um por conta própria ou não conseguem pagar alguém que faça isso. Os cronogramas são realistas para cada objetivo. E o fato de ser gratuito torna acessível para muitas pessoas, que é o mais importante.",
+                            autor: "Depoimento 3",
+                            tag: "Estudante de cursinho popular"
+                        }
+                     ].map((dep, idx) => (
+                        <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                            <p className="text-sm text-gray-700 mb-6 leading-relaxed font-medium italic">
+                                &ldquo;{dep.texto}&rdquo;
                             </p>
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 mt-auto">
                                 <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-[#8B3DFF] font-bold">
-                                    L
+                                    D{idx + 1}
                                 </div>
                                 <div>
-                                    <div className="font-extrabold text-gray-900 text-sm">Lucas M.</div>
-                                    <div className="text-xs text-gray-500">Estudante de Medicina</div>
+                                    <div className="font-extrabold text-gray-900 text-sm">{dep.autor}</div>
+                                    <div className="text-xs text-purple-600 font-bold">{dep.tag}</div>
                                 </div>
                             </div>
                         </div>
