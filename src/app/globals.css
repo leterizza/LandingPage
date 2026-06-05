@@ -124,6 +124,9 @@
   --color-blue-50: var(--blue-50);
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 @layer utilities {
   .nav{
