@@ -60,10 +60,11 @@ export function Header() {
       }`}
     >
       <div 
-        className={`py-4 px-6 w-full max-w-7xl rounded-full transition-all duration-500 flex items-center justify-between gap-10`}
+        className={`relative py-4 px-8 w-full max-w-7xl rounded-full transition-all duration-500 flex items-center justify-between
+          ${isScrolled ? 'bg-primary-900' : ''}`}
       >
-    
-        <div className={`flex items-center py-4 px-8 transition-all duration-500 ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''}`}>
+     {/* <div className={`flex items-center py-4 px-8 transition-all duration-500 ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''} */}
+        <div className={`flex items-center transition-all duration-500`}>
           <Link href="/" className="relative items-center w-auto flex transition-all duration-500">
             <Image 
               src="/static/logoHorizontal.png"
@@ -88,8 +89,10 @@ export function Header() {
           </Link>
         </div>
         
-        <nav className={`hidden lg:flex items-center gap-8 text-base font-bold flex items-center py-4 px-8 transition-all duration-500
-           ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''}`}>
+        {/* <nav className={`hidden lg:flex items-center gap-8 text-base font-bold flex items-center py-4 px-8 transition-all duration-500
+           ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''}`}> */}
+
+        <nav className={`absolute left-1/2 -translate-x-1/2 hidden lg:flex gap-8 text-base font-bold items-center transition-all duration-500`}>
           
           
           <Link href="/sobre" className={`nav ${getDesktopLinkClass('/sobre')}`}>
@@ -104,6 +107,9 @@ export function Header() {
             Blog
           </span>
         </nav>
+
+        <div></div>
+
         
         
         {/* ============= BOTÕES ANTIGOS ===============*/}
@@ -123,7 +129,7 @@ export function Header() {
           </Link>
         </div> */}
         
-        <div className="lg:hidden flex items-center bg-primary-900 py-2 px-4 rounded-full">
+        <div className="lg:hidden flex items-center">
           <button 
             onClick={toggleMobileMenu}
             className={`p-2 transition-colors duration-300 ${
