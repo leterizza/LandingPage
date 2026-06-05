@@ -3,6 +3,7 @@ import { Mail, Instagram, Linkedin } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ContactForm } from '@/components/forms/ContactForm';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "Contato | Leterizza",
@@ -69,36 +70,44 @@ export default function ContatoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
            
-            <div className="bg-primary-50 rounded-3xl p-8 flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md border border-primary-100">
-              <div className="bg-primary-900 text-white p-4 rounded-full">
-                <Mail size={24} />
+            <Link href="mailto:contato@leterizza.com.br">
+              <div className="bg-primary-50 rounded-3xl p-8 flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md border border-primary-100">
+                <div className="bg-primary-900 text-white p-4 rounded-full">
+                  <Mail size={24} />
+                </div>
+                <h3 className="text-primary-900 text-lg font-bold">E-mail</h3>
+                <a className="text-primary-600 text-base font-normal hover:text-primary-800 transition-colors">
+                  contato@leterizza.com.br
+                </a>
               </div>
-              <h3 className="text-primary-900 text-lg font-bold">E-mail</h3>
-              <a href="mailto:contato@leterizza.com.br" className="text-primary-600 text-base font-normal hover:text-primary-800 transition-colors">
-                contato@leterizza.com.br
-              </a>
+            </Link>
+
+            <Link href="https://instagram.com/leterizza" target="_blank" rel="noopener noreferrer">
+              <div className="bg-primary-50 rounded-3xl p-8 flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md border border-primary-100">
+                <div className="bg-primary-900 text-white p-4 rounded-full">
+                  <Instagram size={24} />
+                </div>
+                <h3 className="text-primary-900 text-lg font-bold">Instagram</h3>
+                <a className="text-primary-600 text-base font-normal hover:text-primary-800 transition-colors">
+                  @leterizza
+                </a>
+              </div>
+            </Link>
+
+            <Link href="https://www.linkedin.com/company/leterizza/" target="_blank" rel="noopener noreferrer">
+              <div className="bg-primary-50 rounded-3xl p-8 flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md border border-primary-100">
+                <div className="bg-primary-900 text-white p-4 rounded-full">
+                  <Linkedin size={24} />
+                </div>
+                <h3 className="text-primary-900 text-lg font-bold">LinkedIn</h3>
+                <a className="text-primary-600 text-base font-normal hover:text-primary-800 transition-colors">
+                  Leterizza
+                </a>
+              </div>
+            </Link>
+
             </div>
 
-            <div className="bg-primary-50 rounded-3xl p-8 flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md border border-primary-100">
-              <div className="bg-primary-900 text-white p-4 rounded-full">
-                <Instagram size={24} />
-              </div>
-              <h3 className="text-primary-900 text-lg font-bold">Instagram</h3>
-              <a href="https://instagram.com/leterizza" className="text-primary-600 text-base font-normal hover:text-primary-800 transition-colors">
-                @leterizza
-              </a>
-            </div>
-
-            <div className="bg-primary-50 rounded-3xl p-8 flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md border border-primary-100">
-              <div className="bg-primary-900 text-white p-4 rounded-full">
-                <Linkedin size={24} />
-              </div>
-              <h3 className="text-primary-900 text-lg font-bold">LinkedIn</h3>
-              <a href="#" className="text-primary-600 text-base font-normal hover:text-primary-800 transition-colors">
-                Leterizza
-              </a>
-            </div>
-          </div>
         </section>
 
       </main>
