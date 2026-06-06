@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description: "Prepare-se para o ENEM e outros vestibulares sem gastar uma fortuna! A Leterizza é a plataforma gratuita que democratiza o acesso ao ensino superior.",
 };
 
+
+
 export default function Home() {
   return (
     <div className="min-h-screen font-sans bg-white text-gray-900 overflow-x-hidden">
@@ -79,7 +81,7 @@ export default function Home() {
             </div>
             
             {/* Grupo de Post-its da Direita (4, 5, 6) */}
-            <div className="absolute top-36 md:top-48 right-[-60px] sm:right-[-40px] xl:right-[35px] block z-0 w-[150px] sm:w-[190px] lg:w-[260px] h-[300px] lg:h-[400px] select-none pointer-events-none">
+            <div className="absolute top-36 md:top-24 right-[-60px] sm:right-[-40px] xl:right-[35px] block z-0 w-[150px] sm:w-[190px] lg:w-[260px] h-[300px] lg:h-[400px] select-none pointer-events-none">
               {/* Post-it 4 */}
               <div className="absolute top-0 right-[10px] sm:right-[12px] lg:right-[15px] w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[3deg] filter drop-shadow-sm">
                 <Image
@@ -143,7 +145,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto font-medium">
-                    A Leterizza é a plataforma que torna a preparação para o vestibular acessível e eficiente.
+                    A Leterizza vai além do conteúdo: é uma plataforma acessível que ajuda vestibulandos a aprenderem melhor e estudarem com estratégia.
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto justify-center mb-10">
@@ -153,7 +155,7 @@ export default function Home() {
                         className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-white px-6 py-4 rounded-full w-full border border-gray-200 shadow-sm focus:border-purple-400 focus:ring-2 focus:ring-purple-100 transition-all"
                     />
                     <button className="bg-[#8B3DFF] text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition shadow-lg shadow-purple-200 whitespace-nowrap">
-                        Quero testar GRÁTIS
+                        Quero testar!
                     </button>
                 </div>
             </div>
@@ -183,7 +185,7 @@ export default function Home() {
                             <DollarSign className="w-5 h-5 text-white" />
                         </div>
                         <h3 className="font-bold text-lg mb-2">Cursinhos caros demais</h3>
-                        <p className="text-purple-100 text-sm">Preparação de qualidade não deveria custar milhares de reais.</p>
+                        <p className="text-purple-100 text-sm">Preparação de qualidade que custa milhares de reais.</p>
                     </div>
                     <div className="bg-[#6D28D9] rounded-2xl p-6 text-white shadow-lg">
                         <div className="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center mb-4">
@@ -203,26 +205,6 @@ export default function Home() {
             </div>
         </section>
        
-        {/* --- MIDDLE CTA --- */}
-        <section className="px-4 py-8 mb-12">
-            <div className="max-w-5xl mx-auto flex flex-col justify-center bg-[#3B1968] rounded-[2rem] md:rounded-[6rem] px-8 md:px-16 py-10 md:py-14 relative overflow-hidden shadow-xl text-left">
-                
-                <div className="absolute top-1/2 right-[-10%] w-80 h-80 md:w-96 md:h-96 bg-[#EAB308] rounded-full blur-[90px] md:blur-[110px] opacity-40 pointer-events-none -translate-y-1/2"></div>
-                
-                <div className="relative z-10 max-w-2xl">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
-                        A educação transforma vidas.
-                    </h2>
-                    <p className="text-purple-100/90 text-sm md:text-base mb-6 md:mb-8 font-medium">
-                        Faça parte da plataforma que vai democratizar o acesso ao ensino superior no Brasil
-                    </p>
-                    
-                    <button className="bg-[#8B3DFF] text-white px-8 py-3.5 rounded-full font-bold transition-all hover:bg-purple-600 shadow-lg w-full sm:w-auto">
-                        Quero testar GRÁTIS
-                    </button>
-                </div>
-            </div>
-        </section>
      
         {/* --- FUNCIONALIDADES --- */}
         <section className="py-20 px-6 max-w-6xl mx-auto" id="funcionalidades">
@@ -287,13 +269,35 @@ export default function Home() {
                 </div>
             </div>
         </section>
+
+                {/* --- MIDDLE CTA --- */}
+        <section className="px-4 py-8 mb-12">
+            <div className="max-w-5xl mx-auto flex flex-col justify-center bg-[#3B1968] rounded-[2rem] md:rounded-[6rem] px-8 md:px-16 py-10 md:py-14 relative overflow-hidden shadow-xl text-left">
+                
+                <div className="absolute top-1/2 right-[-10%] w-80 h-80 md:w-96 md:h-96 bg-[#EAB308] rounded-full blur-[90px] md:blur-[110px] opacity-40 pointer-events-none -translate-y-1/2"></div>
+                
+                <div className="relative z-10 max-w-2xl">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
+                        A educação transforma vidas.
+                    </h2>
+                    <p className="text-purple-100/90 text-sm md:text-base mb-6 md:mb-8 font-medium">
+                        Faça parte da plataforma que vai democratizar o acesso ao ensino superior no Brasil
+                    </p>
+                    
+                    <a href="#formulario"
+                     className="bg-[#8B3DFF] text-white px-8 py-3.5 rounded-full font-bold transition-all hover:bg-purple-600 shadow-lg w-full sm:w-auto">
+                        Quero testar!
+                    </a>
+                </div>
+            </div>
+        </section>
    
         {/* --- MISSÃO (Fundo Bege) --- */}
         <section className="bg-[#FEFAED] py-20 px-6 my-12 mx-auto">
             <div className="max-w-4xl mx-auto text-center relative">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[#3D2C1D] mb-6 relative z-10">Nossa missão</h2>
                 <p className="text-lg md:text-xl text-[#5C4D3C] font-medium leading-relaxed relative z-10">
-                    A Leterizza nasceu para democratizar o acesso à educação e tornar a preparação para o vestibular acessível a todos. Queremos que cada estudante tenha a chance de realizar seu sonho de entrar na universidade pública, independentemente de sua condição financeira.
+                    Mais do que oferecer conteúdo, a Leterizza nasceu para democratizar o acesso à educação, ensinando estudantes a estudarem de forma mais estratégica e eficiente, independentemente de sua condição financeira.
                 </p>
             </div>
         </section>
@@ -319,7 +323,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="bg-gradient-to-br from-[#6D28D9] to-[#4C1D95] p-10 rounded-[2rem] text-white shadow-lg overflow-hidden relative">
                     <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center mb-6 relative z-10 backdrop-blur-sm"><Zap className="w-6 h-6"/></div>
-                    <h3 className="font-extrabold text-2xl mb-3 relative z-10">Acesso GRÁTIS à demo</h3>
+                    <h3 className="font-extrabold text-2xl mb-3 relative z-10">Acesso gratuito à demo</h3>
                     <p className="text-purple-100 text-lg relative z-10">Teste todas as funcionalidades da plataforma sem custo algum.</p>
                 </div>
           
@@ -359,11 +363,11 @@ export default function Home() {
         <section className="bg-[#FEFAED] py-24 px-6 border-y border-gray-100">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
+                    {/* <div className="inline-flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
                          Prova Social
-                    </div>
+                    </div> */}
                     <h2 className="text-3xl md:text-5xl font-extrabold text-[#3D2C1D] tracking-tight mt-2">
-                        Veja o que nossos usuários <span className="relative inline-block">
+                        Veja o que nossos primeiros usuários <span className="relative inline-block">
                             dizem
                             <svg className="absolute -bottom-2 left-0 w-full h-2 text-yellow-400" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                                 <path d="M2 8C25 2 75 2 98 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
@@ -411,7 +415,7 @@ export default function Home() {
         </section>
 
         {/* --- BOTTOM FORM CTA --- */}
-        <section className="py-16 md:py-24 px-4 md:px-6">
+        <section id="formulario" className="py-16 md:py-24 px-4 md:px-6">
             <div className="max-w-6xl mx-auto bg-[#6D28D9] rounded-[2rem] md:rounded-[3rem] p-6 sm:p-10 md:p-16 text-white flex flex-col lg:flex-row gap-10 lg:gap-20 items-center shadow-xl relative overflow-hidden">
                 
                 <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-yellow-500 rounded-full blur-[100px] opacity-40 pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
@@ -428,7 +432,7 @@ export default function Home() {
                     </p>
                     <ul className="space-y-3 text-sm font-semibold inline-block text-left">
                         <li className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-green-300"/> Sem cartão de crédito</li>
-                        <li className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-green-300"/> Cancele quando quiser</li>
+                        {/* <li className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-green-300"/> Cancele quando quiser</li> */}
                         <li className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-green-300"/> 100% gratuito</li>
                         <li className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-green-300"/> Dados seguros e protegidos</li>
                     </ul>

@@ -39,9 +39,9 @@ export function Header() {
 
     const isActive = pathname === path;
     if (isActive) {
-      return isScrolled ? 'text-white' : 'text-primary-600';
+      return isScrolled ? 'text-white active scroll' : 'text-primary-600 active';
     }
-    return isScrolled ? 'text-primary-100 hover:text-white' : 'text-neutral-950 hover:text-primary-500';
+    return isScrolled ? 'text-white hover:text-primary-100 scroll' : 'text-neutral-950 hover:text-primary-500';
   };
 
   const getMobileLinkClass = (path: string, isDisabled: boolean = false) => {
@@ -60,14 +60,11 @@ export function Header() {
       }`}
     >
       <div 
-        className={`w-full max-w-7xl rounded-full transition-all duration-500 flex items-center justify-between ${
-          isScrolled
-            ? 'bg-primary-900 py-1 md:py-2 px-4 md:px-3 shadow-lg shadow-primary-900/20 border border-primary-800 backdrop-blur-md' 
-            : 'bg-transparent py-2 px-2 border-transparent shadow-none'
-        }`}
+        className={`relative py-4 px-8 w-full max-w-7xl rounded-full transition-all duration-500 flex items-center justify-between
+          ${isScrolled ? 'bg-primary-900' : ''}`}
       >
-    
-        <div className="flex items-center">
+     {/* <div className={`flex items-center py-4 px-8 transition-all duration-500 ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''} */}
+        <div className={`flex items-center transition-all duration-500`}>
           <Link href="/" className="relative items-center w-auto flex transition-all duration-500">
             <Image 
               src="/static/logoHorizontal.png"
@@ -81,7 +78,7 @@ export function Header() {
             />
           
             <Image 
-              src="/static/Logo_Leterizza_Branco.png"
+              src="/static/logoHorizontal_Branco.png"
               alt="Logo Leterizza"
               fill
               className={`object-contain object-left transition-opacity duration-500 mx-2 ${
@@ -92,25 +89,32 @@ export function Header() {
           </Link>
         </div>
         
-        <nav className="hidden lg:flex items-center gap-8 text-base font-bold">
-          <Link href="/sobre" className={`transition-colors duration-300 ${getDesktopLinkClass('/sobre')}`}>
+        {/* <nav className={`hidden lg:flex items-center gap-8 text-base font-bold flex items-center py-4 px-8 transition-all duration-500
+           ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''}`}> */}
+
+        <nav className={`absolute left-1/2 -translate-x-1/2 hidden lg:flex gap-8 text-base font-bold items-center transition-all duration-500`}>
+          
+          
+          <Link href="/sobre" className={`nav ${getDesktopLinkClass('/sobre')}`}>
             Sobre nós
           </Link>
 
-          
-          <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#funcionalidades', true)}`} title="Em breve">
-            Funcionalidades
-          </span>
-          <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#planos', true)}`} title="Em breve">
-            Planos
-          </span>
-
-          <Link href="/contato" className={`transition-colors duration-300 ${getDesktopLinkClass('/contato')}`}>
+          <Link href="/contato" className={`nav ${getDesktopLinkClass('/contato')}`}>
             Contato
           </Link>
+          
+          <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#funcionalidades', true)}`} title="Em breve">
+            Blog
+          </span>
         </nav>
+
+        <div></div>
+
         
-        <div className="hidden lg:flex items-center gap-6">
+        
+        {/* ============= BOTÕES ANTIGOS ===============*/}
+
+        {/* <div className="hidden lg:flex items-center gap-6">
           <Link href="#" className={`text-base font-bold transition-colors duration-300 ${
             isScrolled ? 'text-white hover:text-primary-200' : 'text-neutral-950 hover:text-primary-600'
           }`}>
@@ -123,7 +127,7 @@ export function Header() {
           }`}>
             Cadastre-se
           </Link>
-        </div>
+        </div> */}
         
         <div className="lg:hidden flex items-center">
           <button 

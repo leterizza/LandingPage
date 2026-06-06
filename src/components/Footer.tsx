@@ -19,7 +19,7 @@ export function Footer() {
             />
             
             <p className="text-primary-100 text-base leading-relaxed max-w-md">
-              Materiais educacionais de qualidade para seu sucesso no vestibular.
+              Educação acessível, personalizada e estratégica para estudantes que sonham com a universidade. 
             </p>
             
             <div className="flex flex-col gap-3 mt-2">
@@ -38,12 +38,12 @@ export function Footer() {
             <Link href="/sobre" className="text-primary-100 hover:text-white transition-colors">
               Sobre nós
             </Link>
-            <Link href="#funcionalidades" className="text-primary-100 hover:text-white transition-colors">
+            {/* <Link href="#funcionalidades" className="text-primary-100 hover:text-white transition-colors">
               Funcionalidades
             </Link>
             <Link href="#planos" className="text-primary-100 hover:text-white transition-colors">
               Planos
-            </Link>
+            </Link> */}
             <Link href="/contato" className="text-primary-100 hover:text-white transition-colors">
               Contato
             </Link>
@@ -70,13 +70,13 @@ export function Footer() {
           </div>
           
           <div className="flex gap-6">
-            <Link href="#" className="text-primary-300 hover:text-white transition-colors" aria-label="Instagram">
+            <Link href="https://www.instagram.com/leterizza/" className="text-primary-300 hover:text-white transition-colors" aria-label="Instagram">
               <Instagram size={24} />
             </Link>
-            <Link href="#" className="text-primary-300 hover:text-white transition-colors" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/company/leterizza/ " className="text-primary-300 hover:text-white transition-colors" aria-label="LinkedIn">
               <Linkedin size={24} />
             </Link>
-            <Link href="#" className="text-primary-300 hover:text-white transition-colors" aria-label="YouTube">
+            <Link href="https://www.youtube.com/@Leterizza" className="text-primary-300 hover:text-white transition-colors" aria-label="YouTube">
               <Youtube size={24} />
             </Link>
           </div>
