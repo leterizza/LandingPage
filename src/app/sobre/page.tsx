@@ -17,6 +17,7 @@ interface Member {
   bgColor: string;
   textColor: string;
   image: string;
+  linkedinUrl: string;
   stickers: string[];
   stickerPositions: string[];
 }
