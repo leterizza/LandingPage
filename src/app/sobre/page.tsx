@@ -6,6 +6,8 @@ import { Footer } from '@/components/Footer';
 import Image from 'next/image';
 import { Users, ArrowLeft, ArrowRight, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Instagram, Linkedin, Youtube, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 interface Member {
   name: string;
@@ -81,6 +83,7 @@ export default function SobreNos() {
       bgColor: "#F5F0FF",
       textColor: "#4A3B69",
       image: "/static/team/sabrina.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/sabrinacruzlima",
       stickers: ["/static/stickers/4.png", "/static/stickers/36.png", "/static/stickers/22.png"],
       stickerPositions: [
         "bottom-[40px] left-[20px] rotate-[-12deg]",
@@ -96,6 +99,7 @@ export default function SobreNos() {
       bgColor: "#EBF2FE",
       textColor: "#041F4D",
       image: "/static/team/gustavo.jpg",
+      linkedinUrl: "",
       stickers: ["/static/stickers/29.png", "/static/stickers/34.png", "/static/stickers/14.png"],
       stickerPositions: [
         "bottom-[50px] left-[35px] rotate-[-8deg]",
@@ -111,6 +115,7 @@ export default function SobreNos() {
       bgColor: "#FFEEFB",
       textColor: "#DB0B14",
       image: "/static/team/maite.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/maite-alves-974467303/",
       stickers: ["/static/stickers/20.png"],
       stickerPositions: [
         "bottom-[45px] right-[40px] rotate-[10deg]"
@@ -124,6 +129,7 @@ export default function SobreNos() {
       bgColor: "#E5F3EC",
       textColor: "#004700",
       image: "/static/team/fernando.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/fernandomarcello",
       stickers: ["/static/stickers/12.png", "/static/stickers/34.png", "/static/stickers/31.png"],
       stickerPositions: [
         "bottom-[35px] left-[25px] rotate-[-15deg]",
@@ -139,6 +145,7 @@ export default function SobreNos() {
       bgColor: "#FFF9E6",
       textColor: "#856404",
       image: "/static/team/paulo.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/paulo-henrique-alves-rodrigues-447057237/",
       stickers: [
         "/static/stickers/21.png",
         "/static/stickers/21.png",
@@ -160,6 +167,7 @@ export default function SobreNos() {
       bgColor: "#F5F0FF",
       textColor: "#4A3B69",
       image: "/static/team/tiago.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/tiago-s-almeida/",
       stickers: [
         "/static/stickers/10.png",
         "/static/stickers/19.png",
@@ -179,6 +187,7 @@ export default function SobreNos() {
       bgColor: "#EBF2FE",
       textColor: "#041F4D",
       image: "/static/team/ivan.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/ivanlucasnogueira/",
       stickers: [
         "/static/stickers/4.png",
         "/static/stickers/36.png",
@@ -198,6 +207,7 @@ export default function SobreNos() {
       bgColor: "#E5F3EC",
       textColor: "#004700",
       image: "",
+      linkedinUrl: "https://www.linkedin.com/in/eloisa-antero-guisse-0891a424a/",
       stickers: [],
       stickerPositions: []
     }
@@ -300,7 +310,20 @@ export default function SobreNos() {
                 );
              })}
           </div>
-
+            {member.linkedinUrl && (
+            <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex justify-center gap-6 z-20">
+              <Link 
+                href={member.linkedinUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-opacity duration-300 hover:opacity-60"
+                style={{ color: member.textColor }}
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={32} /> 
+              </Link>
+            </div>
+          )}
           <button
             className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-[0.3em] opacity-30 z-20"
             style={{ color: member.textColor }}
