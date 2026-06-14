@@ -6,6 +6,8 @@ import { Footer } from '@/components/Footer';
 import Image from 'next/image';
 import { Users, ArrowLeft, ArrowRight, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { Instagram, Linkedin, Youtube, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 interface Member {
   name: string;
@@ -15,6 +17,7 @@ interface Member {
   bgColor: string;
   textColor: string;
   image: string;
+  linkedinUrl: string;
   stickers: string[];
   stickerPositions: string[];
 }
@@ -81,6 +84,7 @@ export default function SobreNos() {
       bgColor: "#F5F0FF",
       textColor: "#4A3B69",
       image: "/static/team/sabrina.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/sabrinacruzlima",
       stickers: ["/static/stickers/4.png", "/static/stickers/36.png", "/static/stickers/22.png"],
       stickerPositions: [
         "bottom-[40px] left-[20px] rotate-[-12deg]",
@@ -96,6 +100,7 @@ export default function SobreNos() {
       bgColor: "#EBF2FE",
       textColor: "#041F4D",
       image: "/static/team/gustavo.jpg",
+      linkedinUrl: "",
       stickers: ["/static/stickers/29.png", "/static/stickers/34.png", "/static/stickers/14.png"],
       stickerPositions: [
         "bottom-[50px] left-[35px] rotate-[-8deg]",
@@ -111,6 +116,7 @@ export default function SobreNos() {
       bgColor: "#FFEEFB",
       textColor: "#DB0B14",
       image: "/static/team/maite.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/maite-alves-974467303/",
       stickers: ["/static/stickers/20.png"],
       stickerPositions: [
         "bottom-[45px] right-[40px] rotate-[10deg]"
@@ -124,6 +130,7 @@ export default function SobreNos() {
       bgColor: "#E5F3EC",
       textColor: "#004700",
       image: "/static/team/fernando.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/fernandomarcello",
       stickers: ["/static/stickers/12.png", "/static/stickers/34.png", "/static/stickers/31.png"],
       stickerPositions: [
         "bottom-[35px] left-[25px] rotate-[-15deg]",
@@ -139,6 +146,7 @@ export default function SobreNos() {
       bgColor: "#FFF9E6",
       textColor: "#856404",
       image: "/static/team/paulo.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/paulo-henrique-alves-rodrigues-447057237/",
       stickers: [
         "/static/stickers/21.png",
         "/static/stickers/21.png",
@@ -160,6 +168,7 @@ export default function SobreNos() {
       bgColor: "#F5F0FF",
       textColor: "#4A3B69",
       image: "/static/team/tiago.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/tiago-s-almeida/",
       stickers: [
         "/static/stickers/10.png",
         "/static/stickers/19.png",
@@ -179,6 +188,7 @@ export default function SobreNos() {
       bgColor: "#EBF2FE",
       textColor: "#041F4D",
       image: "/static/team/ivan.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/ivanlucasnogueira/",
       stickers: [
         "/static/stickers/4.png",
         "/static/stickers/36.png",
@@ -198,6 +208,7 @@ export default function SobreNos() {
       bgColor: "#E5F3EC",
       textColor: "#004700",
       image: "",
+      linkedinUrl: "https://www.linkedin.com/in/eloisa-antero-guisse-0891a424a/",
       stickers: [],
       stickerPositions: []
     }
@@ -300,7 +311,20 @@ export default function SobreNos() {
                 );
              })}
           </div>
-
+            {member.linkedinUrl && (
+            <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex justify-center gap-6 z-20">
+              <Link 
+                href={member.linkedinUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-opacity duration-300 hover:opacity-60"
+                style={{ color: member.textColor }}
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={32} /> 
+              </Link>
+            </div>
+          )}
           <button
             className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-[0.3em] opacity-30 z-20"
             style={{ color: member.textColor }}
@@ -322,25 +346,49 @@ export default function SobreNos() {
       content: (
         <>
           <p className="mb-4">
-            A Leterizza nasceu como o Trabalho de Conclusão de Curso da fundadora, Sabrina Lima em conjunto com Cauã Dias, no curso de Marketing da USP.
+            A nasceu como Trabalho de Conclusão de Curso da fundadora Sabrina Lima, em conjunto com Cauã Dias, sob orientação da Prof. Dra. Tania Christopoulos, no curso de Marketing da USP.
+          </p>
+          <p className="mb-4">
+            O projeto teve como objetivo desenvolver um modelo de negócio capaz de democratizar a preparação para o vestibular, tornando-a mais acessível para estudantes de baixa renda.
+          </p>
+          <p className="mb-4">
+            Durante essa fase, foram conduzidas pesquisas qualitativas e quantitativas com estudantes e responsáveis financeiros, permitindo identificar desafios reais enfrentados na preparação para o vestibular e validar as primeiras hipóteses da startup.
           </p>
           <p>
-            O TCC teve como objetivo criar um modelo de negócio que democratizasse a preparação para o vestibular, atendendo principalmente estudantes de baixa renda. Foram conduzidas pesquisas qualitativas e quantitativas com estudantes e responsáveis, que moldaram a base do projeto.
+            Esses estudos deram origem aos pilares estratégicos da Leterizza: acessibilidade, eficiência e impacto social por meio da educação.
           </p>
         </>
       )
     },
     {
-      year: "2024",
-      title: "Validação e Pré-incubação",
+      year: "2025",
+      title: "Da ideia ao MVP",
       bgColor: "#E5F3EC", // Verde menta suave
       content: (
         <>
           <p className="mb-4">
-            Após a aprovação com excelência do TCC, decidimos tirar a ideia do papel e iniciar a fase de testes reais com os alunos.
+            Em 2025, a deu os primeiros passos fora do papel e iniciou o desenvolvimento do seu MVP (Produto Mínimo Viável), transformando o plano de negócio em uma solução prática para estudantes vestibulandos.
+          </p>
+          <p className="mb-4">
+            Nesse período, a Leterizza também participou de iniciativas voltadas para inovação e empreendedorismo, como o , programa do Instituto TIM voltado à transformação de TCCs em startups, e do , fortalecendo sua visão de negócio e sua conexão com o ecossistema empreendedor universitário.
           </p>
           <p>
-            Entramos em fase de pré-incubação para estruturar a startup, desenvolver a plataforma tecnológica e consolidar nosso propósito de impacto social na educação.
+            Além disso, foram iniciadas ações de recrutamento de estudantes e colaboradores para formar os primeiros times de marketing, branding, CRM e validação da startup.
+          </p>
+        </>
+      )
+    },
+    {
+      year: "2026",
+      title: "Expansão, validação e comunidade",
+      bgColor: "#E5F3EC", // Verde menta suave
+      content: (
+        <>
+          <p className="mb-4">
+            Em 2026, a está consolidando sua fase de validação por meio da ampliação dos testes da plataforma e do fortalecimento da sua comunidade de estudantes.
+          </p>
+          <p className="mb-4">
+            Segue expandindo sua atuação no ecossistema de inovação e empreendedorismo, participando de programas, eventos e iniciativas voltadas ao desenvolvimento de startups de impacto social e educação.
           </p>
         </>
       )
@@ -368,12 +416,12 @@ export default function SobreNos() {
             </p>
 
             {/* Vídeo Manifesto (Placeholder) */}
-            <div className="w-full aspect-video bg-purple-50 rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] flex items-center justify-center overflow-hidden group cursor-pointer hover:shadow-[0_0_80px_rgba(139,61,255,0.25)] transition-all">
-              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors z-10"></div>
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl z-20 group-hover:scale-110 transition-transform">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-[#8B3DFF] border-b-[12px] border-b-transparent ml-2"></div>
-              </div>
-              <span className="absolute bottom-6 text-purple-400 font-bold tracking-widest uppercase z-10 text-sm">Vídeo Manifesto (Espaço Reservado)</span>
+            <div className="w-full max-w-3xl mx-auto">
+              <iframe 
+                className="w-full aspect-video rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] hover:shadow-[0_0_80px_rgba(139,61,255,0.25)]" 
+                src="https://www.youtube.com/embed/RW3VCi_MtjI" 
+                title="YouTube video player">
+              </iframe>
             </div>
           </div>
         </section>
@@ -529,7 +577,7 @@ export default function SobreNos() {
                       variants={stackVariants}
                       initial="enter"
                       animate="center"
-                      className="rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full h-[530px] flex flex-col transform-gpu origin-bottom"
+                      className="rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full h-full flex flex-col transform-gpu origin-bottom"
                       style={{ 
                         gridArea: 'cardArea',
                         backgroundColor: trajectorySteps[currentStep].bgColor 
