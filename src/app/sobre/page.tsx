@@ -322,25 +322,49 @@ export default function SobreNos() {
       content: (
         <>
           <p className="mb-4">
-            A Leterizza nasceu como o Trabalho de Conclusão de Curso da fundadora, Sabrina Lima em conjunto com Cauã Dias, no curso de Marketing da USP.
+            A nasceu como Trabalho de Conclusão de Curso da fundadora Sabrina Lima, em conjunto com Cauã Dias, sob orientação da Prof. Dra. Tania Christopoulos, no curso de Marketing da USP.
+          </p>
+          <p className="mb-4">
+            O projeto teve como objetivo desenvolver um modelo de negócio capaz de democratizar a preparação para o vestibular, tornando-a mais acessível para estudantes de baixa renda.
+          </p>
+          <p className="mb-4">
+            Durante essa fase, foram conduzidas pesquisas qualitativas e quantitativas com estudantes e responsáveis financeiros, permitindo identificar desafios reais enfrentados na preparação para o vestibular e validar as primeiras hipóteses da startup.
           </p>
           <p>
-            O TCC teve como objetivo criar um modelo de negócio que democratizasse a preparação para o vestibular, atendendo principalmente estudantes de baixa renda. Foram conduzidas pesquisas qualitativas e quantitativas com estudantes e responsáveis, que moldaram a base do projeto.
+            Esses estudos deram origem aos pilares estratégicos da Leterizza: acessibilidade, eficiência e impacto social por meio da educação.
           </p>
         </>
       )
     },
     {
-      year: "2024",
-      title: "Validação e Pré-incubação",
+      year: "2025",
+      title: "Da ideia ao MVP",
       bgColor: "#E5F3EC", // Verde menta suave
       content: (
         <>
           <p className="mb-4">
-            Após a aprovação com excelência do TCC, decidimos tirar a ideia do papel e iniciar a fase de testes reais com os alunos.
+            Em 2025, a deu os primeiros passos fora do papel e iniciou o desenvolvimento do seu MVP (Produto Mínimo Viável), transformando o plano de negócio em uma solução prática para estudantes vestibulandos.
+          </p>
+          <p className="mb-4">
+            Nesse período, a Leterizza também participou de iniciativas voltadas para inovação e empreendedorismo, como o , programa do Instituto TIM voltado à transformação de TCCs em startups, e do , fortalecendo sua visão de negócio e sua conexão com o ecossistema empreendedor universitário.
           </p>
           <p>
-            Entramos em fase de pré-incubação para estruturar a startup, desenvolver a plataforma tecnológica e consolidar nosso propósito de impacto social na educação.
+            Além disso, foram iniciadas ações de recrutamento de estudantes e colaboradores para formar os primeiros times de marketing, branding, CRM e validação da startup.
+          </p>
+        </>
+      )
+    },
+    {
+      year: "2026",
+      title: "Expansão, validação e comunidade",
+      bgColor: "#E5F3EC", // Verde menta suave
+      content: (
+        <>
+          <p className="mb-4">
+            Em 2026, a está consolidando sua fase de validação por meio da ampliação dos testes da plataforma e do fortalecimento da sua comunidade de estudantes.
+          </p>
+          <p className="mb-4">
+            Segue expandindo sua atuação no ecossistema de inovação e empreendedorismo, participando de programas, eventos e iniciativas voltadas ao desenvolvimento de startups de impacto social e educação.
           </p>
         </>
       )
@@ -529,7 +553,7 @@ export default function SobreNos() {
                       variants={stackVariants}
                       initial="enter"
                       animate="center"
-                      className="rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full h-[530px] flex flex-col transform-gpu origin-bottom"
+                      className="rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0DCD7] ring-4 ring-inset ring-white w-full h-full flex flex-col transform-gpu origin-bottom"
                       style={{ 
                         gridArea: 'cardArea',
                         backgroundColor: trajectorySteps[currentStep].bgColor 
