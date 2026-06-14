@@ -392,12 +392,12 @@ export default function SobreNos() {
             </p>
 
             {/* Vídeo Manifesto (Placeholder) */}
-            <div className="w-full aspect-video bg-purple-50 rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] flex items-center justify-center overflow-hidden group cursor-pointer hover:shadow-[0_0_80px_rgba(139,61,255,0.25)] transition-all">
-              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors z-10"></div>
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl z-20 group-hover:scale-110 transition-transform">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-[#8B3DFF] border-b-[12px] border-b-transparent ml-2"></div>
-              </div>
-              <span className="absolute bottom-6 text-purple-400 font-bold tracking-widest uppercase z-10 text-sm">Vídeo Manifesto (Espaço Reservado)</span>
+            <div className="w-full max-w-3xl mx-auto">
+              <iframe 
+                className="w-full aspect-video rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] hover:shadow-[0_0_80px_rgba(139,61,255,0.25)]" 
+                src="https://www.youtube.com/embed/RW3VCi_MtjI" 
+                title="YouTube video player">
+              </iframe>
             </div>
           </div>
         </section>
