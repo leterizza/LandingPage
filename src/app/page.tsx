@@ -149,9 +149,10 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-row gap-3 max-w-xl mx-auto justify-center mb-10">
-                    <button className="bg-[#8B3DFF] text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-purple-700 transition shadow-lg shadow-purple-200 whitespace-nowrap">
+                    <a href="#formulario"
+                     className="bg-[#8B3DFF] text-white px-12 py-4 rounded-full font-bold transition-all hover:bg-purple-600 shadow-lg w-full sm:w-auto">
                         Quero testar!
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -225,7 +226,7 @@ export default function Home() {
                 </div>
     
                 <div className="space-y-8">
-                    <div className="flex gap-4 items-center">
+                    {/* <div className="flex gap-4 items-center">
                         <div className="w-12 h-12 rounded-full bg-[#8B3DFF] text-white flex items-center justify-center shrink-0 shadow-md">
                             <Gamepad2 className="w-5 h-5" />
                         </div>
@@ -233,14 +234,14 @@ export default function Home() {
                             <h3 className="font-bold text-lg text-gray-900">Gamificação que motiva</h3>
                             <p className="text-gray-500 text-sm">Ganhe XP estudando e troque por descontos reais.</p>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="flex gap-4 items-center">
                         <div className="w-12 h-12 rounded-full bg-purple-100 text-[#8B3DFF] flex items-center justify-center shrink-0">
                             <Users className="w-5 h-5" />
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg text-gray-900">Comunidade ativa</h3>
-                            <p className="text-gray-500 text-sm">Conecte-se com milhares de estudantes na mesma jornada.</p>
+                            <h3 className="font-bold text-lg text-gray-900">Algoritmo personalizado</h3>
+                            <p className="text-gray-500 text-sm">Trilhas e conteúdos recomendados para as suas necessidades</p>
                         </div>
                     </div>
                     <div className="flex gap-4 items-center">
