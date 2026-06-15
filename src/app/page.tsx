@@ -149,9 +149,10 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-row gap-3 max-w-xl mx-auto justify-center mb-10">
-                    <button className="bg-[#8B3DFF] text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-purple-700 transition shadow-lg shadow-purple-200 whitespace-nowrap">
+                    <a href="#formulario"
+                     className="bg-[#8B3DFF] text-white px-12 py-4 rounded-full font-bold transition-all hover:bg-purple-600 shadow-lg w-full sm:w-auto">
                         Quero testar!
-                    </button>
+                    </a>
                 </div>
             </div>
 
