@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(.git/**)",
+      "Write(.git/**)",
+      "Edit(.github/**)",
+      "Write(.github/**)",
+      "Edit(.claude/settings.json)",
+      "Write(.claude/settings.json)",
+      "Edit(.claude/settings.local.json)",
+      "Write(.claude/settings.local.json)",
+      "Edit(.claude/hooks/**)",
+      "Write(.claude/hooks/**)",
+      "Bash(git push:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/block-versioning-and-secrets.cjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
