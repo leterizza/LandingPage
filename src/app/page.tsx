@@ -24,10 +24,10 @@ export default function Home() {
       <main>
         {/* --- HERO SECTION --- */}
         <section className="relative pt-40 md:pt-52 pb-20 px-6 text-center overflow-hidden">
-          <div className="max-w-6xl mx-auto relative w-full">
+          <div className="flex max-w-6xl mx-auto relative w-full">
             
             {/* Grupo de Post-its da Esquerda (1, 2, 3) */}
-            <div className="absolute top-[10px] md:top-2 left-[-60px] sm:left-[-40px] xl:left-[15px] block z-0 w-[140px] sm:w-[180px] lg:w-[240px] h-[300px] lg:h-[400px] select-none pointer-events-none">
+            <div className="absolute top-[160px] md:top-2 left-[-60px] xl:left-[15px] block z-0 w-[140px] sm:w-[180px] lg:w-[240px] h-[300px] lg:h-[400px] select-none pointer-events-none">
               {/* Post-it 1 */}
               <div className="absolute top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 rotate-[-13deg] filter drop-shadow-sm">
                 <Image
@@ -148,15 +148,11 @@ export default function Home() {
                     A Leterizza vai além do conteúdo: é uma plataforma acessível que ajuda vestibulandos a aprenderem melhor e estudarem com estratégia.
                 </p>
 
-                <div className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto justify-center mb-10">
-                    <input 
-                        type="email" 
-                        placeholder="Digite o seu melhor e-mail" 
-                        className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-white px-6 py-4 rounded-full w-full border border-gray-200 shadow-sm focus:border-purple-400 focus:ring-2 focus:ring-purple-100 transition-all"
-                    />
-                    <button className="bg-[#8B3DFF] text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition shadow-lg shadow-purple-200 whitespace-nowrap">
+                <div className="flex flex-row gap-3 max-w-xl mx-auto justify-center mb-10">
+                    <a href="#formulario"
+                     className="bg-[#8B3DFF] text-white px-12 py-4 rounded-full font-bold transition-all hover:bg-purple-600 shadow-lg w-full sm:w-auto">
                         Quero testar!
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -230,7 +226,7 @@ export default function Home() {
                 </div>
     
                 <div className="space-y-8">
-                    <div className="flex gap-4 items-center">
+                    {/* <div className="flex gap-4 items-center">
                         <div className="w-12 h-12 rounded-full bg-[#8B3DFF] text-white flex items-center justify-center shrink-0 shadow-md">
                             <Gamepad2 className="w-5 h-5" />
                         </div>
@@ -238,14 +234,14 @@ export default function Home() {
                             <h3 className="font-bold text-lg text-gray-900">Gamificação que motiva</h3>
                             <p className="text-gray-500 text-sm">Ganhe XP estudando e troque por descontos reais.</p>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="flex gap-4 items-center">
                         <div className="w-12 h-12 rounded-full bg-purple-100 text-[#8B3DFF] flex items-center justify-center shrink-0">
                             <Users className="w-5 h-5" />
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg text-gray-900">Comunidade ativa</h3>
-                            <p className="text-gray-500 text-sm">Conecte-se com milhares de estudantes na mesma jornada.</p>
+                            <h3 className="font-bold text-lg text-gray-900">Algoritmo personalizado</h3>
+                            <p className="text-gray-500 text-sm">Trilhas e conteúdos recomendados para as suas necessidades</p>
                         </div>
                     </div>
                     <div className="flex gap-4 items-center">
