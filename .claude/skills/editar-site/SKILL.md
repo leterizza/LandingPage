@@ -37,15 +37,22 @@ Sem restrição de tamanho — pode ser trocar uma palavra ou reestruturar uma s
 
 Se algo quebrou (erro de build, erro de console, tela em branco): não empurre pra frente mesmo assim. Reverta ou corrija, e só siga quando a tela realmente carregar limpa.
 
-### 4. Como fechar o trabalho — sempre PR, nunca direto
+### 4. Durante o dia: acumule commits numa branch só, sem abrir PR a cada mudança
 
-Independente do tamanho da mudança, o fechamento é sempre o mesmo, e existe por um motivo: **nada chega no site de verdade sem uma pessoa revisando antes.**
+A pessoa provavelmente vai pedir várias mudanças ao longo do mesmo dia/sessão — cada uma vira um commit separado e bem explicado, todas na **mesma branch**, e só no fim tudo isso vira **um PR único** pra revisão. Não crie uma branch nova nem abra PR a cada pedido isolado — isso geraria uma PR pra cada texto trocado, o que ninguém quer revisar.
 
-1. Crie uma branch nova a partir da atual (nunca trabalhe direto em cima do que já está no ar): `git checkout -b conteudo/<slug-curto-descrevendo-a-mudanca>` — ex: `conteudo/texto-botao-comprar`, `conteudo/secao-depoimentos`.
-2. Comite com uma mensagem clara, em português, do que mudou e por quê (a pessoa que revisar não vai adivinhar).
-3. Abra um Pull Request: `gh pr create` — descreva o pedido original da pessoa na descrição do PR, não só "mudanças no site".
-4. **Push pra remoto está bloqueado tecnicamente nesta configuração** — se `gh pr create` (ou qualquer `git push`) for recusado, isso é esperado, não um bug: peça pra um desenvolvedor dar o push final e concluir a abertura do PR. Explique isso pra pessoa em vez de tentar contornar.
-5. Avise a pessoa, claramente: **a mudança não está no ar ainda** — está esperando revisão de um dev. Não prometa "já mudou" antes disso acontecer de verdade.
+- **Primeira mudança da sessão**: crie uma branch nova a partir da atual (nunca trabalhe direto em cima do que já está no ar) — `git checkout -b conteudo/<data-ou-descrição-curta-do-dia>`, ex: `conteudo/2026-08-25`. Se já existir uma branch de trabalho do mesmo dia em andamento (confira com `git branch`), reaproveite ela em vez de criar outra.
+- **Cada mudança**, depois de confirmada visualmente (passo 3): `git commit` com mensagem clara e específica do que mudou e por quê — quem for revisar no fim do dia vai ler essas mensagens pra entender o que aconteceu, então "mudanças no site" não serve, escreva o que de fato mudou.
+- Depois de commitar, siga pro próximo pedido — não pare pra pedir aprovação de PR a cada commit.
+
+### 5. Fim do dia: abra o PR só quando a pessoa pedir
+
+Só abra o Pull Request quando a pessoa disser algo como "terminei por hoje", "pode mandar pra revisão", "fecha isso" — **nunca automaticamente depois de um commit qualquer**. Quando isso acontecer:
+
+1. Rode `git log` na branch do dia pra ver todos os commits acumulados.
+2. Abra o Pull Request (`gh pr create`) com uma descrição que resume **todas** as mudanças da branch, não só a última — quem revisa não acompanhou cada pedido no momento em que aconteceu, precisa entender a sessão inteira de uma vez.
+3. **Push pra remoto está bloqueado tecnicamente nesta configuração** — se `gh pr create` (ou qualquer `git push`) for recusado, isso é esperado, não um bug: peça pra um desenvolvedor dar o push final e concluir a abertura do PR. Explique isso pra pessoa em vez de tentar contornar.
+4. Avise a pessoa, claramente: **as mudanças não estão no ar ainda** — estão esperando revisão de um dev. Não prometa "já mudou" antes disso acontecer de verdade.
 
 ## O que fazer quando o pedido não é seguro
 
