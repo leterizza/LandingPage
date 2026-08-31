@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import Link from "next/link";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 
 export function LandingPageForm() {
@@ -74,75 +75,82 @@ export function LandingPageForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-green-50 rounded-3xl p-8 flex flex-col items-center justify-center text-center h-full min-h-[400px] border border-green-100 shadow-inner">
+      <div className="bg-green-50 rounded-3xl p-8 flex flex-col items-center justify-center text-center h-full min-h-[360px] border border-green-100 shadow-inner">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 shadow-md">
           <CheckCircle2 className="w-10 h-10" />
         </div>
-        <h3 className="text-3xl font-extrabold text-green-900 mb-3">Tudo certo!</h3>
-        <p className="text-green-700 font-medium text-lg leading-relaxed">
-          Seus dados foram enviados com sucesso. Fique de olho no seu e-mail para as próximas novidades da Leterizza.
+        <h3 className="text-2xl font-extrabold text-green-900 mb-3">Tudo certo!</h3>
+        <p className="text-green-700 font-medium leading-relaxed">
+          Você entrou na lista da fase de validação. Fique de olho no seu e-mail e no WhatsApp para os próximos passos.
         </p>
       </div>
     );
   }
 
+  const inputClass = "w-full bg-[#FAFAFA] border border-[#E6E6E6] rounded-[14px] px-[13px] py-[13px] text-sm focus:ring-2 focus:ring-primary-450 focus:border-primary-450 outline-none transition-all";
+  const labelClass = "block text-[11px] font-bold mb-1.5 text-primary-775 ml-0.5 uppercase tracking-wide";
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 text-left w-full">
-      <div className="grid grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="space-y-4 text-left w-full">
+      <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Nome</label>
-          <input required name="firstname" type="text" placeholder="Seu nome" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all" />
+          <label className={labelClass}>Nome</label>
+          <input required name="firstname" type="text" placeholder="Seu nome" className={inputClass} />
         </div>
         <div>
-          <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Sobrenome</label>
-          <input required name="lastname" type="text" placeholder="Seu sobrenome" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all" />
+          <label className={labelClass}>Sobrenome</label>
+          <input required name="lastname" type="text" placeholder="Seu sobrenome" className={inputClass} />
         </div>
-      </div>
-      
-      <div>
-        <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">E-mail</label>
-        <input required name="email" type="email" placeholder="Digite seu e-mail" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all" />
       </div>
 
       <div>
-        <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Você estuda em:</label>
-        <select required name="instituicao" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none text-gray-600 transition-all font-medium">
-            <option value="">Selecione uma opção</option>
-            <option value="Escola Pública">Escola Pública</option>
-            <option value="Particular">Particular</option>
-            <option value="Já terminei o ensino médio">Já terminei o ensino médio</option>
-        </select>
+        <label className={labelClass}>E-mail</label>
+        <input required name="email" type="email" placeholder="seu@email.com" className={inputClass} />
       </div>
 
-      <div>
-        <label className="block text-xs font-extrabold mb-1 text-[#2E1065] ml-1 uppercase">Em que ano você está?</label>
-        <select required name="ano" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none text-gray-600 transition-all font-medium">
-            <option value="">Selecione o seu ano</option>
-            <option value="1º EM">1º EM</option>
-            <option value="2º EM">2º EM</option>
-            <option value="3º EM">3º EM</option>
-            <option value="Já me formei no EM">Já me formei no EM</option>
-            <option value="Cursinho pré-vestibular">Cursinho pré-vestibular</option>
-        </select>
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className={labelClass}>Você estuda em</label>
+          <select required name="instituicao" className={`${inputClass} text-gray-600 font-medium`}>
+              <option value="">Selecione</option>
+              <option value="Escola Pública">Escola Pública</option>
+              <option value="Particular">Particular</option>
+              <option value="Já terminei o ensino médio">Já terminei o ensino médio</option>
+          </select>
+        </div>
+        <div>
+          <label className={labelClass}>Qual ano</label>
+          <select required name="ano" className={`${inputClass} text-gray-600 font-medium`}>
+              <option value="">Selecione</option>
+              <option value="1º EM">1º EM</option>
+              <option value="2º EM">2º EM</option>
+              <option value="3º EM">3º EM</option>
+              <option value="Já me formei no EM">Já me formei no EM</option>
+              <option value="Cursinho pré-vestibular">Cursinho pré-vestibular</option>
+          </select>
+        </div>
       </div>
-      
-      <div className="space-y-3 pt-3">
-          <label className="flex items-start gap-3 cursor-pointer group bg-gray-50/50 p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
-              <input type="checkbox" name="comunicacoes" className="mt-1 w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer" />
-              <span className="text-xs text-gray-600 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
+
+      <div className="space-y-2.5 pt-1">
+          <label className="flex items-start gap-2.5 cursor-pointer group">
+              <input type="checkbox" name="comunicacoes" className="mt-0.5 w-[17px] h-[17px] rounded-[5px] text-primary-450 focus:ring-primary-450 border-gray-300 cursor-pointer shrink-0" />
+              <span className="text-xs text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors">
                   Eu concordo em receber outras comunicações da Leterizza.
               </span>
           </label>
-          <label className="flex items-start gap-3 cursor-pointer group bg-gray-50/50 p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
-              <input required type="checkbox" name="dados_pessoais" className="mt-1 w-4 h-4 rounded text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer" />
-              <span className="text-xs text-gray-600 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
-                  Eu concordo em permitir que a Leterizza armazene e processe meus dados pessoais.*
+          <label className="flex items-start gap-2.5 cursor-pointer group">
+              <input required type="checkbox" name="dados_pessoais" className="mt-0.5 w-[17px] h-[17px] rounded-[5px] text-primary-450 focus:ring-primary-450 border-gray-300 cursor-pointer shrink-0" />
+              <span className="text-xs text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors">
+                  Eu concordo que a Leterizza armazene e processe meus dados pessoais.*
               </span>
           </label>
       </div>
 
-      <p className="text-[10px] text-gray-400 leading-relaxed py-1 border-t border-gray-100 mt-4 pt-4">
-        A Leterizza tem o compromisso de proteger e respeitar sua privacidade e nós usaremos suas informações pessoais somente para administrar sua conta e fornecer os produtos e serviços que você nos solicitou. Você pode cancelar o recebimento dessas comunicações quando quiser.
+      <p className="text-[10.5px] text-gray-400 leading-relaxed py-1 border-t border-gray-100 pt-3">
+        A Leterizza tem o compromisso de proteger e respeitar sua privacidade, e usará suas informações apenas para administrar sua inscrição e a fase de testes. Você pode cancelar o recebimento quando quiser. Veja os{' '}
+        <Link href="/termos" className="text-primary-450 font-semibold hover:underline">Termos de uso</Link>{' '}
+        e a{' '}
+        <Link href="/privacidade" className="text-primary-450 font-semibold hover:underline">Política de privacidade</Link>.
       </p>
 
       {status === "error" && (
@@ -151,13 +159,17 @@ export function LandingPageForm() {
         </div>
       )}
 
-      <button disabled={status === "loading"} type="submit" className="w-full bg-[#8B3DFF] text-white font-extrabold text-base py-4 rounded-xl hover:bg-purple-700 transition-colors shadow-lg shadow-purple-200 mt-4 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+      <button disabled={status === "loading"} type="submit" className="w-full bg-primary-450 text-white font-bold text-[17px] py-[18px] rounded-[18px] hover:bg-primary-550 transition-colors shadow-[0_10px_24px_rgba(139,61,255,0.3)] flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
           {status === "loading" ? (
-              <><Loader2 className="w-5 h-5 animate-spin" /> Enviando dados...</>
+              <><Loader2 className="w-5 h-5 animate-spin" /> Enviando...</>
           ) : (
-              "Enviar"
+              "Quero ser um dos primeiros"
           )}
       </button>
+
+      <p className="text-center font-[family-name:var(--font-caveat)] text-xl text-primary-450 !mt-2">
+        e já entrar na comunidade hoje
+      </p>
     </form>
   );
 }
