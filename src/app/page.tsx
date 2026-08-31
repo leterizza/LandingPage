@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -119,7 +120,7 @@ export default function Home() {
                 <div className="w-[86px] shrink-0 -ml-[30px] -mb-[9px] relative z-10">
                   <div className="bg-[#2B2B33] rounded-2xl p-1 shadow-[0_14px_28px_rgba(46,16,101,0.24)]">
                     <div className="relative rounded-[13px] overflow-hidden bg-primary-550 aspect-[9/19]">
-                      <ImagePlaceholder label="App no celular" className="w-full h-full" />
+                      <Image src="/static/07-login.png" alt="App no celular" fill sizes="86px" className="object-cover" />
                       <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[30px] h-[3px] rounded-full bg-white/55" />
                     </div>
                   </div>
@@ -196,9 +197,9 @@ export default function Home() {
             </div>
 
             {[
-              { n: 1, titulo: 'Você responde oito perguntas', texto: 'Objetivo, rotina e tempo disponível por dia. É daí que sai o seu plano.', label: 'Onboarding — "Qual é o seu objetivo?"' },
-              { n: 2, titulo: 'A plataforma monta o cronograma', texto: 'Semana a semana até a prova, com os dias ativos marcados e a ordem que faz sentido para você.', label: 'Painel — cronograma da semana' },
-              { n: 3, titulo: 'Você acompanha o desempenho', texto: 'Questões feitas, acertos, horas de estudo e evolução por matéria.', label: 'Painel — desempenho geral' },
+              { n: 1, titulo: 'Você responde oito perguntas', texto: 'Objetivo, rotina e tempo disponível por dia. É daí que sai o seu plano.', label: 'Onboarding — "Qual é o seu objetivo?"', img: '/static/02-onboarding.png' },
+              { n: 2, titulo: 'A plataforma monta o cronograma', texto: 'Semana a semana até a prova, com os dias ativos marcados e a ordem que faz sentido para você.', label: 'Painel — cronograma da semana', img: '/static/04-dashboard.png' },
+              { n: 3, titulo: 'Você acompanha o desempenho', texto: 'Questões feitas, acertos, horas de estudo e evolução por matéria.', label: 'Painel — desempenho geral', img: '/static/09-desempenho.png' },
             ].map((step) => (
               <div key={step.n} className="relative z-10 grid grid-cols-1 md:grid-cols-[300px_1fr] gap-4 md:gap-9 items-center py-8 border-t border-white/15">
                 <div className="flex flex-col gap-2.5">
@@ -209,8 +210,8 @@ export default function Home() {
                   <h3 className="text-2xl leading-tight font-bold text-white">{step.titulo}</h3>
                   <p className="text-[15.5px] leading-[1.6] text-primary-200">{step.texto}</p>
                 </div>
-                <div className="rounded-[20px] overflow-hidden bg-primary-775 shadow-[0_18px_44px_rgba(0,0,0,0.28)] aspect-video">
-                  <ImagePlaceholder label={step.label} className="w-full h-full" />
+                <div className="relative rounded-[20px] overflow-hidden bg-primary-775 shadow-[0_18px_44px_rgba(0,0,0,0.28)] aspect-video">
+                  <Image src={step.img} alt={step.label} fill sizes="(max-width: 768px) 100vw, 600px" className="object-cover object-top" />
                 </div>
               </div>
             ))}
@@ -294,8 +295,8 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center items-end gap-5 min-w-0">
               <div className="flex-[0_1_200px] max-w-[200px] min-w-0 flex flex-col items-center gap-1.5">
-                <div className="w-full aspect-square rounded-full overflow-hidden bg-primary-100">
-                  <ImagePlaceholder label="Ilustração da Let" className="w-full h-full" />
+                <div className="relative w-full aspect-square rounded-full overflow-hidden bg-primary-100">
+                  <Image src="/static/let.png" alt="Let, a assistente da Leterizza" fill sizes="200px" className="object-cover" />
                 </div>
                 <span className="font-[family-name:var(--font-caveat)] text-2xl text-warm-text-label text-center">oi, eu sou a Let</span>
               </div>
