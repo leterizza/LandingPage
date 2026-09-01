@@ -109,8 +109,8 @@ export default function Home() {
               <div className="flex items-end gap-0 max-w-[440px]">
                 <div className="flex-1 min-w-0">
                   <div className="bg-[#2B2B33] rounded-t-[9px] rounded-b-[3px] p-[6px] pb-[7px] shadow-[0_12px_26px_rgba(46,16,101,0.16)]">
-                    <div className="rounded-[4px] overflow-hidden bg-white aspect-[16/10]">
-                      <ImagePlaceholder label="Painel da plataforma (computador)" className="w-full h-full" />
+                    <div className="relative rounded-[4px] overflow-hidden bg-white aspect-[16/10]">
+                      <Image src="/static/04-dashboard-hero.png" alt="Painel da plataforma (computador)" fill sizes="(max-width: 768px) 90vw, 354px" className="object-cover object-top" />
                     </div>
                   </div>
                   <div className="relative h-2 -mx-[13px] rounded-b-[7px]" style={{ background: 'linear-gradient(180deg,#E7E7ED 0%,#BCBCC7 100%)' }}>
