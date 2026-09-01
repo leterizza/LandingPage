@@ -1,196 +1,126 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  // Hook do Next.js para pegar a rota atual (ex: '/sobre', '/contato')
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const getDesktopLinkClass = (path: string, isDisabled: boolean = false) => {
-    if (isDisabled) {
-      return isScrolled 
-        ? 'text-primary-200 opacity-50 cursor-not-allowed' 
-        : 'text-neutral-400 opacity-60 cursor-not-allowed';
-    }
-
+  const getDesktopLinkClass = (path: string) => {
     const isActive = pathname === path;
-    if (isActive) {
-      return isScrolled ? 'text-white active scroll' : 'text-primary-600 active';
-    }
-    return isScrolled ? 'text-white hover:text-primary-100 scroll' : 'text-neutral-950 hover:text-primary-500';
+    return isActive
+      ? 'text-primary-450'
+      : 'text-neutral-900 hover:text-primary-450';
   };
 
-  const getMobileLinkClass = (path: string, isDisabled: boolean = false) => {
-    if (isDisabled) {
-      return 'text-primary-200 opacity-50 cursor-not-allowed';
-    }
-
+  const getMobileLinkClass = (path: string) => {
     const isActive = pathname === path;
-    return isActive ? 'text-white' : 'text-primary-100 hover:text-white';
+    return isActive ? 'text-primary-450' : 'text-neutral-900 hover:text-primary-450';
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ${
-        isScrolled ? 'pt-2 md:pt-4 px-4 md:px-8' : 'pt-4 md:pt-8 px-4 sm:px-8 lg:px-12'
-      }`}
-    >
-      <div 
-        className={`relative py-4 px-8 w-full max-w-7xl rounded-full transition-all duration-500 flex items-center justify-between
-          ${isScrolled ? 'bg-primary-900' : ''}`}
-      >
-     {/* <div className={`flex items-center py-4 px-8 transition-all duration-500 ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''} */}
-        <div className={`flex items-center transition-all duration-500`}>
-          <Link href="/" className="relative items-center w-auto flex transition-all duration-500">
-            <Image 
-              src="/static/logoHorizontal.png"
-              alt="Logo Leterizza"
-              width={130}
-              height={40} 
-              className={`object-contain object-left transition-opacity duration-500 w-[100px] md:w-[130px] h-auto ${
-                isScrolled ? 'opacity-0' : 'opacity-100'
-              }`}
-              priority
-            />
-          
-            <Image 
-              src="/static/logoHorizontal_Branco.png"
-              alt="Logo Leterizza"
-              fill
-              className={`object-contain object-left transition-opacity duration-500 mx-2 ${
-                isScrolled ? 'visible' : 'invisible'
-              }`}
-              priority
-            />
-          </Link>
-        </div>
-        
-        {/* <nav className={`hidden lg:flex items-center gap-8 text-base font-bold flex items-center py-4 px-8 transition-all duration-500
-           ${isScrolled ? 'bg-primary-900 rounded-full shadow-lg' : ''}`}> */}
+    <header className="sticky top-0 z-50 bg-white/[0.92] backdrop-blur-[10px] border-b border-[#F0EAF9]">
+      <div className="relative max-w-[1280px] mx-auto flex items-center justify-between px-6 md:px-12 py-5">
+        <Link href="/" className="shrink-0">
+          <Image
+            src="/static/logoHorizontal.png"
+            alt="Logo Leterizza"
+            width={130}
+            height={32}
+            className="object-contain object-left w-[100px] md:w-[130px] h-auto"
+            priority
+          />
+        </Link>
 
-        <nav className={`absolute left-1/2 -translate-x-1/2 hidden lg:flex gap-8 text-base font-bold items-center transition-all duration-500`}>
-          
-          
+        <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-9 text-[15px] font-semibold">
+          <Link href="/" className={`nav ${getDesktopLinkClass('/')}`}>
+            Início
+          </Link>
           <Link href="/sobre" className={`nav ${getDesktopLinkClass('/sobre')}`}>
             Sobre nós
           </Link>
-
           <Link href="/contato" className={`nav ${getDesktopLinkClass('/contato')}`}>
             Contato
           </Link>
-          
-          <span className={`transition-colors duration-300 select-none ${getDesktopLinkClass('#funcionalidades', true)}`} title="Em breve">
+          <span className="text-neutral-300 cursor-not-allowed select-none" title="Em breve">
             Blog
           </span>
         </nav>
 
-        <div></div>
+        <Link
+          href="/#formulario"
+          className="hidden lg:inline-flex bg-primary-450 text-white text-[15px] font-semibold px-6 py-[11px] rounded-full hover:bg-primary-550 transition-colors shrink-0"
+        >
+          Quero me inscrever
+        </Link>
 
-        
-        
-        {/* ============= BOTÕES ANTIGOS ===============*/}
-
-        {/* <div className="hidden lg:flex items-center gap-6">
-          <Link href="#" className={`text-base font-bold transition-colors duration-300 ${
-            isScrolled ? 'text-white hover:text-primary-200' : 'text-neutral-950 hover:text-primary-600'
-          }`}>
-            Entrar
-          </Link>
-          <Link href="#" className={`text-base font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 ${
-            isScrolled 
-              ? 'bg-white text-primary-900 hover:bg-neutral-100 shadow-white/10' 
-              : 'bg-primary-500 text-white hover:bg-primary-600 shadow-primary-200'
-          }`}>
-            Cadastre-se
-          </Link>
-        </div> */}
-        
         <div className="lg:hidden flex items-center">
-          <button 
+          <button
             onClick={toggleMobileMenu}
-            className={`p-2 transition-colors duration-300 ${
-              isScrolled ? 'text-white' : 'text-neutral-950'
-            }`}
+            className="p-2 text-neutral-900"
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6 md:w-7 md:h-7" /> : <Menu className="w-6 h-6 md:w-7 md:h-7" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      <div 
-        className={`fixed inset-y-0 right-0 w-full max-w-sm bg-primary-950 p-8 z-60 shadow-2xl transition-transform duration-500 transform lg:hidden ${
+      <div
+        className={`fixed inset-y-0 right-0 w-full max-w-sm bg-white p-8 z-60 shadow-2xl transition-transform duration-500 transform lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between mb-12">
-            <Image 
-              src="/static/Logo_Leterizza_Branco.png" 
+            <Image
+              src="/static/logoHorizontal.png"
               alt="Logo Leterizza"
-              width={24} 
-              height={24}
-              className="object-contain"
+              width={110}
+              height={28}
+              className="object-contain w-[110px] h-auto"
             />
-            <button onClick={toggleMobileMenu} className="text-white p-2">
+            <button onClick={toggleMobileMenu} className="text-neutral-900 p-2" aria-label="Fechar menu">
               <X size={28} />
             </button>
           </div>
 
           <nav className="flex flex-col gap-6 text-lg font-bold mb-auto">
+            <Link href="/" onClick={toggleMobileMenu} className={getMobileLinkClass('/')}>
+              Início
+            </Link>
             <Link href="/sobre" onClick={toggleMobileMenu} className={getMobileLinkClass('/sobre')}>
               Sobre nós
             </Link>
-            
-            <span className={`select-none ${getMobileLinkClass('#funcionalidades', true)}`} title="Em breve">
-              Funcionalidades
-            </span>
-            <span className={`select-none ${getMobileLinkClass('#planos', true)}`} title="Em breve">
-              Planos
-            </span>
-
             <Link href="/contato" onClick={toggleMobileMenu} className={getMobileLinkClass('/contato')}>
               Contato
             </Link>
+            <span className="text-neutral-300 select-none" title="Em breve">
+              Blog
+            </span>
           </nav>
 
-          <div className="flex flex-col gap-4 mt-12 pt-8 border-t border-primary-800">
-            <Link href="#" onClick={toggleMobileMenu} className="text-lg font-bold text-white hover:text-primary-200 text-center py-3">
-              Entrar
-            </Link>
-            <Link href="#" onClick={toggleMobileMenu} className="text-lg font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-sm bg-white text-primary-900 hover:bg-neutral-100 text-center">
-              Cadastre-se
+          <div className="flex flex-col gap-4 mt-12 pt-8 border-t border-neutral-100">
+            <Link
+              href="/#formulario"
+              onClick={toggleMobileMenu}
+              className="text-base font-bold px-8 py-4 rounded-full bg-primary-450 text-white hover:bg-primary-550 transition-colors text-center"
+            >
+              Quero me inscrever
             </Link>
           </div>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div 
+        <div
           onClick={toggleMobileMenu}
           className="fixed inset-0 bg-black/50 z-55 lg:hidden backdrop-blur-sm"
           aria-hidden="true"
