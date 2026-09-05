@@ -80,7 +80,7 @@ export default function Home() {
                 Você diz quanto tempo tem por dia, a gente diz o que estudar hoje e acompanha o seu progresso até a prova.
               </p>
               <p className="text-base md:text-[17px] leading-[1.65] text-neutral-600 max-w-[480px] text-pretty">
-                Estamos escolhendo agora os primeiros estudantes para testar a plataforma e ajudar a construir uma preparação para o vestibular mais acessível.
+                Estamos criando a primeira turma para testar a plataforma e ajudar a construir uma preparação para o vestibular mais acessível.
               </p>
             </div>
 
