@@ -391,8 +391,7 @@ export default function Home() {
         style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
       >
         <span className="text-xs font-semibold text-primary-775 leading-tight">
-          Inscrições até {PRAZO_INSCRICOES}<br />
-          <span className="text-neutral-500 font-normal">gratuito nesta fase</span>
+          Inscrições até {PRAZO_INSCRICOES}
         </span>
         <Link href="/#formulario" className="shrink-0 bg-primary-450 text-white text-sm font-bold px-6 py-3 rounded-full">
           Quero me inscrever
