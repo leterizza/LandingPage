@@ -352,7 +352,7 @@ export default function SobreNos() {
               {trajectorySteps.map((step) => (
                 <div
                   key={step.year}
-                  className={`rounded-[28px] p-8 flex flex-col gap-3 ${step.dark ? 'bg-warm-text-strong text-white' : 'bg-white'}`}
+                  className={`rounded-[28px] p-8 flex flex-col gap-3 ${step.dark ? 'bg-primary-650 text-white' : 'bg-white'}`}
                 >
                   <span
                     className={`text-[15px] font-bold tracking-[0.08em] ${step.dark ? 'text-secondary-650' : 'text-warm-text-label'}`}
