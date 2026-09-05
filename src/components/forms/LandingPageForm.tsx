@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 
+const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/LSCPzmku0yjENNcwEcg2eY";
+
 export function LandingPageForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -80,9 +82,18 @@ export function LandingPageForm() {
           <CheckCircle2 className="w-10 h-10" />
         </div>
         <h3 className="text-2xl font-extrabold text-green-900 mb-3">Tudo certo!</h3>
-        <p className="text-green-700 font-medium leading-relaxed">
-          Você entrou na lista da fase de validação. Fique de olho no seu e-mail e no WhatsApp para os próximos passos.
+        <p className="text-green-700 font-medium leading-relaxed mb-6">
+          Você entrou na lista da fase de validação. Entre agora mesmo na nossa comunidade no WhatsApp — e fique de olho no seu e-mail para os próximos passos.
         </p>
+        <a
+          href={WHATSAPP_GROUP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-bold text-base px-6 py-4 rounded-[16px] hover:bg-[#1ebe5a] transition-colors shadow-[0_10px_24px_rgba(37,211,102,0.35)]"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20z" /></svg>
+          Entrar na comunidade no WhatsApp
+        </a>
       </div>
     );
   }
