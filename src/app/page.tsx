@@ -100,7 +100,7 @@ export default function Home() {
             {/* Benefícios + mockup — 3º no mobile, continuação da coluna esquerda no desktop */}
             <div className="flex flex-col gap-5 lg:[grid-area:media]">
               <div className="flex flex-col gap-3">
-                <CheckItem>Cronograma automático, refeito quando você atrasa</CheckItem>
+                <CheckItem>Cronograma personalizado, com opção de recriar quando você atrasa</CheckItem>
                 <CheckItem>Simulados agendados e gráficos de evolução</CheckItem>
                 <CheckItem>Gratuito durante esta fase, sem cartão de crédito</CheckItem>
               </div>
@@ -151,8 +151,8 @@ export default function Home() {
                 },
                 {
                   dor: '"Começo animado e paro na terceira semana"',
-                  titulo: 'Refaz o plano quando você atrasa',
-                  texto: 'Sem culpa e sem recomeçar do zero — o plano se ajusta a você.',
+                  titulo: 'Você pode recriar o plano quando atrasa',
+                  texto: 'Sem culpa e sem recomeçar do zero. Se quiser, você pode recriar o cronograma e receber um novo plano ajustado à sua rotina.',
                 },
                 {
                   dor: '"Não sei se estou evoluindo"',
