@@ -83,7 +83,7 @@ export function LandingPageForm() {
         </div>
         <h3 className="text-2xl font-extrabold text-green-900 mb-3">Tudo certo!</h3>
         <p className="text-green-700 font-medium leading-relaxed mb-6">
-          Você entrou na lista da fase de validação. Entre agora mesmo na nossa comunidade no WhatsApp — e fique de olho no seu e-mail para os próximos passos.
+          Você entrou na lista da fase de validação. Entre agora mesmo na nossa comunidade no WhatsApp e fique de olho no seu e-mail para os próximos passos.
         </p>
         <a
           href={WHATSAPP_GROUP_LINK}
