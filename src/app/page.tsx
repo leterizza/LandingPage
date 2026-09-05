@@ -227,7 +227,7 @@ export default function Home() {
                 O que acontece depois que você se inscreve
               </h2>
               <p className="text-[15px] md:text-[16.5px] leading-[1.6] text-[#4A3B69]">
-                As inscrições vão até {PRAZO_INSCRICOES}. O acesso à plataforma é liberado por etapas ao longo da fase de validação — e, enquanto isso, você já faz parte.
+                As inscrições vão até {PRAZO_INSCRICOES}. O acesso à plataforma é liberado por etapas ao longo da fase de validação e, enquanto isso, você já faz parte da nossa comunidade.
               </p>
             </div>
 
