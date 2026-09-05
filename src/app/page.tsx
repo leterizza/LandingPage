@@ -80,7 +80,7 @@ export default function Home() {
                 Você diz quanto tempo tem por dia, a gente diz o que estudar hoje e acompanha o seu progresso até a prova.
               </p>
               <p className="text-base md:text-[17px] leading-[1.65] text-neutral-600 max-w-[480px] text-pretty">
-                Estamos escolhendo agora os primeiros estudantes para testar a plataforma e ajudar a construir uma preparação para o vestibular mais acessível.
+                Estamos criando a primeira turma para testar a plataforma e ajudar a construir uma preparação para o vestibular mais acessível.
               </p>
             </div>
 
@@ -91,7 +91,7 @@ export default function Home() {
                   Inscreva-se para ser um dos primeiros usuários
                 </h2>
                 <p className="text-[13.5px] leading-[1.55] text-neutral-600">
-                  Esta inscrição não cria uma conta: você entra na lista da fase de validação e recebe por e-mail as orientações para testar a plataforma quando sua vez chegar.
+                  Esta inscrição não cria uma conta: você entra na lista da fase de validação e recebe por e-mail as orientações de acesso para quando a plataforma for lançada.
                 </p>
               </div>
               <LandingPageForm />
@@ -100,7 +100,7 @@ export default function Home() {
             {/* Benefícios + mockup — 3º no mobile, continuação da coluna esquerda no desktop */}
             <div className="flex flex-col gap-5 lg:[grid-area:media]">
               <div className="flex flex-col gap-3">
-                <CheckItem>Cronograma automático, refeito quando você atrasa</CheckItem>
+                <CheckItem>Cronograma personalizado, com opção de recriar quando você atrasa</CheckItem>
                 <CheckItem>Simulados agendados e gráficos de evolução</CheckItem>
                 <CheckItem>Gratuito durante esta fase, sem cartão de crédito</CheckItem>
               </div>
@@ -135,7 +135,7 @@ export default function Home() {
           <div className="max-w-[1080px] mx-auto flex flex-col gap-11">
             <div className="flex flex-col gap-3 max-w-[640px]">
               <h2 className="text-3xl md:text-[40px] leading-[1.12] font-extrabold text-primary-775 tracking-tight">
-                O que trava o seu estudo — e o que a gente faz sobre isso
+                O que trava o seu estudo, e o que a gente faz sobre isso
               </h2>
               <p className="text-lg leading-[1.6] text-neutral-600">
                 Conteúdo não falta. Falta organização, constância e alguém mostrando o progresso.
@@ -151,8 +151,8 @@ export default function Home() {
                 },
                 {
                   dor: '"Começo animado e paro na terceira semana"',
-                  titulo: 'Refaz o plano quando você atrasa',
-                  texto: 'Sem culpa e sem recomeçar do zero — o plano se ajusta a você.',
+                  titulo: 'Você pode recriar o plano quando atrasa',
+                  texto: 'Sem culpa e sem recomeçar do zero. Se quiser, você pode recriar o cronograma e receber um novo plano ajustado à sua rotina.',
                 },
                 {
                   dor: '"Não sei se estou evoluindo"',
@@ -192,7 +192,7 @@ export default function Home() {
                 É isso que os primeiros usuários vão testar
               </h2>
               <p className="text-base md:text-[17px] leading-[1.6] text-primary-200 max-w-[600px]">
-                Do questionário inicial ao acompanhamento do desempenho, tudo na mesma tela — nada de PDF perdido no grupo do WhatsApp.
+                Do questionário inicial ao acompanhamento do desempenho, tudo na mesma tela, sem PDF perdido no grupo do WhatsApp.
               </p>
             </div>
 
@@ -227,7 +227,7 @@ export default function Home() {
                 O que acontece depois que você se inscreve
               </h2>
               <p className="text-[15px] md:text-[16.5px] leading-[1.6] text-[#4A3B69]">
-                As inscrições vão até {PRAZO_INSCRICOES}. O acesso à plataforma é liberado por etapas ao longo da fase de validação — e, enquanto isso, você já faz parte.
+                As inscrições vão até {PRAZO_INSCRICOES}. O acesso à plataforma é liberado por etapas ao longo da fase de validação e, enquanto isso, você já faz parte da nossa comunidade.
               </p>
             </div>
 
@@ -268,13 +268,13 @@ export default function Home() {
               </h2>
 
               <p className="text-base md:text-[17.5px] leading-[1.65] text-warm-text max-w-[540px] text-pretty">
-                Assim que se inscreve, você entra no nosso grupo no WhatsApp — um espaço para trocar experiências com outros vestibulandos e tirar dúvidas com universitários que já passaram por isso. A <strong>Let</strong> caminha junto, avisando o que ninguém pode perder.
+                Assim que se inscreve, você entra no nosso grupo no WhatsApp, um espaço para trocar experiências com outros vestibulandos e tirar dúvidas com universitários que já passaram por isso. A <strong>Let</strong> caminha junto, avisando o que ninguém pode perder.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
                 {[
                   { label: 'entre estudantes', texto: 'Troca de experiências, rotina, escolha de curso e desabafo de quem está estudando agora.' },
-                  { label: 'com universitários', texto: 'Dúvidas respondidas por quem já passou — do conteúdo à vida na universidade.' },
+                  { label: 'com universitários', texto: 'Dúvidas respondidas por quem já passou, do conteúdo à vida na universidade.' },
                   { label: 'avisos da Let', texto: 'Datas, inscrições de vestibulares, lembretes e novidades da plataforma.' },
                   { label: 'conteúdo de estudo', texto: 'Dicas de organização, técnicas de memorização e repertório para a redação.' },
                 ].map((item) => (
@@ -337,7 +337,7 @@ export default function Home() {
           <div className="max-w-[1080px] mx-auto grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-8 items-stretch">
             <div className="bg-white rounded-[32px] p-8 md:p-11 flex flex-col gap-7 shadow-[0_12px_32px_rgba(46,16,101,0.08)]">
               <p className="text-xl md:text-2xl leading-[1.55] font-medium text-primary-775 text-pretty">
-                &ldquo;O cronograma ajuda demais, porque muitos não conseguem montar um por conta própria ou pagar alguém que faça. E ser gratuito torna acessível para muita gente — que é o mais importante.&rdquo;
+                &ldquo;O cronograma ajuda demais, porque muitos não conseguem montar um por conta própria ou pagar alguém que faça. E ser gratuito torna acessível para muita gente, que é o mais importante.&rdquo;
               </p>
               <div className="flex items-center gap-3.5 mt-auto">
                 <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-450 flex items-center justify-center font-extrabold">A</div>
@@ -356,7 +356,7 @@ export default function Home() {
               <div className="bg-primary-650 rounded-[28px] p-[30px] flex-1 flex flex-col gap-3">
                 <span className="font-[family-name:var(--font-caveat)] text-2xl text-secondary-650">nossa missão</span>
                 <p className="text-base leading-[1.6] text-primary-100">
-                  Democratizar o acesso à educação, ensinando a estudar de forma estratégica — independentemente da condição financeira.
+                  Democratizar o acesso à educação, ensinando a estudar de forma estratégica, independentemente da condição financeira.
                 </p>
               </div>
             </div>
@@ -391,8 +391,7 @@ export default function Home() {
         style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
       >
         <span className="text-xs font-semibold text-primary-775 leading-tight">
-          Inscrições até {PRAZO_INSCRICOES}<br />
-          <span className="text-neutral-500 font-normal">gratuito nesta fase</span>
+          Inscrições até {PRAZO_INSCRICOES}
         </span>
         <Link href="/#formulario" className="shrink-0 bg-primary-450 text-white text-sm font-bold px-6 py-3 rounded-full">
           Quero me inscrever
