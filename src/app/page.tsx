@@ -91,7 +91,7 @@ export default function Home() {
                   Inscreva-se para ser um dos primeiros usuários
                 </h2>
                 <p className="text-[13.5px] leading-[1.55] text-neutral-600">
-                  Esta inscrição não cria uma conta: você entra na lista da fase de validação e recebe por e-mail as orientações para testar a plataforma quando sua vez chegar.
+                  Esta inscrição não cria uma conta: você entra na lista da fase de validação e recebe por e-mail as orientações de acesso para quando a plataforma for lançada.
                 </p>
               </div>
               <LandingPageForm />
