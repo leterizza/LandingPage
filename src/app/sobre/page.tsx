@@ -12,7 +12,6 @@ interface Member {
   textColor: string;
   image: string;
   linkedinUrl: string;
-  sticker?: string;
 }
 
 const teamMembers: Member[] = [
@@ -24,7 +23,6 @@ const teamMembers: Member[] = [
     textColor: "#4A3B69",
     image: "/static/team/sabrina.jpg",
     linkedinUrl: "https://www.linkedin.com/in/sabrinacruzlima",
-    sticker: "/static/stickers/4.png",
   },
   {
     name: "Maitê",
@@ -34,7 +32,6 @@ const teamMembers: Member[] = [
     textColor: "#DB0B14",
     image: "/static/team/maite.jpg",
     linkedinUrl: "https://www.linkedin.com/in/maite-alves-974467303/",
-    sticker: "/static/stickers/20.png",
   },
   {
     name: "Fernando",
@@ -44,7 +41,6 @@ const teamMembers: Member[] = [
     textColor: "#004700",
     image: "/static/team/fernando.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/fernandomarcello",
-    sticker: "/static/stickers/12.png",
   },
   {
     name: "Paulo Henrique",
@@ -54,7 +50,6 @@ const teamMembers: Member[] = [
     textColor: "#856404",
     image: "/static/team/paulo.jpg",
     linkedinUrl: "https://www.linkedin.com/in/paulo-henrique-alves-rodrigues-447057237/",
-    sticker: "/static/stickers/21.png",
   },
   {
     name: "Tiago",
@@ -64,7 +59,6 @@ const teamMembers: Member[] = [
     textColor: "#4A3B69",
     image: "/static/team/tiago.jpg",
     linkedinUrl: "https://www.linkedin.com/in/tiago-s-almeida/",
-    sticker: "/static/stickers/10.png",
   },
   {
     name: "Ivan",
@@ -74,7 +68,6 @@ const teamMembers: Member[] = [
     textColor: "#041F4D",
     image: "/static/team/ivan.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/ivanlucasnogueira/",
-    sticker: "/static/stickers/4.png",
   },
 ];
 
@@ -92,11 +85,6 @@ function TeamMemberCard({ member }: { member: Member }) {
           className="object-cover"
           style={{ objectPosition: "center 50%" }}
         />
-        {member.sticker && (
-          <div className="absolute bottom-3 right-3 w-11 h-11 rotate-[11deg] drop-shadow-md pointer-events-none">
-            <Image src={member.sticker} alt="" fill unoptimized className="object-contain" />
-          </div>
-        )}
       </div>
       <div className="p-6 pb-8 flex flex-col gap-3">
         <div>
