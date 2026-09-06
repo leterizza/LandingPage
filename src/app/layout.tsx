@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Poppins, Kalam, Caveat } from "next/font/google";
 import "./globals.css";
 
@@ -32,16 +33,18 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: "Leterizza | Preparação acessível para o vestibular",
-  description: "Plataforma de estudos gratuita e gamificada que democratiza o acesso ao vestibular para estudantes de todo o Brasil.",
+  description:
+    "Plataforma de estudos gratuita e gamificada que democratiza o acesso ao vestibular para estudantes de todo o Brasil.",
   keywords: ["vestibular", "estudos", "gratuito", "enem", "educação"],
   openGraph: {
     title: "Leterizza | Educação Acessível",
-    description: "Plataforma de estudos gamificada que democratiza o acesso ao vestibular.",
+    description:
+      "Plataforma de estudos gamificada que democratiza o acesso ao vestibular.",
     url: "https://leterizza.com.br",
     siteName: "Leterizza",
     images: [
       {
-        url: "/static/logoHorizontal.png", 
+        url: "/static/logoHorizontal.png",
         width: 1200,
         height: 630,
       },
@@ -62,6 +65,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${kalam.variable} ${caveat.variable} antialiased`}
       >
         {children}
+
+        <Script
+          id="hs-script-loader"
+          src="https://js.hs-scripts.com/50515665.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
