@@ -357,7 +357,7 @@ export default function SobreNos() {
                   </div>
                   {step.dark && (
                     <p className="font-[family-name:var(--font-caveat)] text-xl text-secondary-650 mt-1">
-                      inscrições até 13 de setembro
+                      inscrições abertas
                     </p>
                   )}
                 </div>
@@ -402,7 +402,7 @@ export default function SobreNos() {
               </h2>
               <p className="text-[17.5px] leading-[1.6] text-primary-100 max-w-lg">
                 Estamos selecionando os primeiros estudantes para testar a plataforma e dar feedback. As
-                inscrições vão até 13 de setembro.
+                inscrições estão abertas.
               </p>
             </div>
             <div className="relative z-10 flex flex-col items-start gap-3.5">
