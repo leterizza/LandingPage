@@ -11,10 +11,6 @@ export const metadata: Metadata = {
   description: "Prepare-se para o ENEM e outros vestibulares sem gastar uma fortuna! A Leterizza é a plataforma gratuita que democratiza o acesso ao ensino superior.",
 };
 
-// Prazo final da fase de inscrições — data única, usada em todos os textos do
-// site que fazem referência a ela (selo do hero, jornada, CTA final, etc).
-const PRAZO_INSCRICOES = "13 de setembro";
-
 function Highlight({ children }: { children: React.ReactNode }) {
   return (
     <span className="relative inline-block text-primary-450">
@@ -69,7 +65,7 @@ export default function Home() {
             {/* Bloco de texto — título + contexto (1º no mobile e no desktop) */}
             <div className="flex flex-col gap-5 lg:[grid-area:text]">
               <span className="self-start inline-flex items-center gap-2 bg-primary-50 text-primary-600 border border-primary-100 text-[13px] font-bold uppercase tracking-wide px-[18px] py-[9px] rounded-full">
-                Inscrições abertas até {PRAZO_INSCRICOES}
+                Inscrições abertas
               </span>
 
               <h1 className="text-4xl md:text-5xl lg:text-[54px] leading-[1.08] font-extrabold tracking-tight text-neutral-900 text-balance">
@@ -227,13 +223,13 @@ export default function Home() {
                 O que acontece depois que você se inscreve
               </h2>
               <p className="text-[15px] md:text-[16.5px] leading-[1.6] text-[#4A3B69]">
-                As inscrições vão até {PRAZO_INSCRICOES}. O acesso à plataforma é liberado por etapas ao longo da fase de validação e, enquanto isso, você já faz parte da nossa comunidade.
+                As inscrições estão abertas. O acesso à plataforma é liberado por etapas ao longo da fase de validação e, enquanto isso, você já faz parte da nossa comunidade.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
-                { n: 1, titulo: 'Você se inscreve', texto: 'Um minuto de formulário, até ' + PRAZO_INSCRICOES + '. Sem cartão, sem mensalidade nesta fase.' },
+                { n: 1, titulo: 'Você se inscreve', texto: 'Um minuto de formulário. Sem cartão, sem mensalidade nesta fase.' },
                 { n: 2, titulo: 'Entra na comunidade', texto: 'Nosso grupo no WhatsApp, gratuito, aberto no mesmo dia.' },
                 { n: 3, titulo: 'Acompanha a Let', texto: 'Datas, inscrições, lembretes e dicas de estudo direto no celular.' },
                 { n: 4, titulo: 'Recebe o convite para testar', texto: 'Chega por e-mail, com as orientações de como usar a plataforma.', dark: true },
@@ -377,7 +373,7 @@ export default function Home() {
             <Link href="/#formulario" className="relative z-10 bg-white text-primary-650 text-base md:text-[17px] font-bold px-9 md:px-[46px] py-[19px] rounded-full hover:bg-primary-50 transition-colors">
               Quero ser um dos primeiros
             </Link>
-            <span className="relative z-10 text-sm text-primary-200">Inscrições até {PRAZO_INSCRICOES} · sem cartão de crédito</span>
+            <span className="relative z-10 text-sm text-primary-200">Inscrições abertas · sem cartão de crédito</span>
           </div>
         </section>
 
@@ -391,7 +387,7 @@ export default function Home() {
         style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
       >
         <span className="text-xs font-semibold text-primary-775 leading-tight">
-          Inscrições até {PRAZO_INSCRICOES}
+          Inscrições abertas
         </span>
         <Link href="/#formulario" className="shrink-0 bg-primary-450 text-white text-sm font-bold px-6 py-3 rounded-full">
           Quero me inscrever
