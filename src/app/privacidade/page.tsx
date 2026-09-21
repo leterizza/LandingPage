@@ -26,7 +26,7 @@ export default function PrivacidadePage() {
                 quanto tempo guardamos e o que você pode exigir de nós.
               </p>
               <p className="m-0">
-                Escrevemos em linguagem direta porque parte de quem lê tem 15, 16 anos. Se alguma coisa aqui não
+                Escrevemos em linguagem direta porque parte de quem lê tem 16, 17 anos. Se alguma coisa aqui não
                 estiver clara, escreva para o nosso contato de privacidade — entender o que fazemos com seus dados
                 também é um direito seu.
               </p>
@@ -116,9 +116,8 @@ export default function PrivacidadePage() {
               ]}
             />
             <p className="m-0">
-              A idade mínima da Leterizza é 12 anos. Quando a plataforma abrir, contas de estudantes de 12 a 15 anos
-              só serão ativadas depois de vinculadas à conta de um responsável legal, conforme o Estatuto Digital
-              da Criança e do Adolescente (Lei 15.211/2025).
+              A idade mínima da Leterizza é 16 anos. Quem informa no cadastro uma data de nascimento que indica
+              menos de 16 anos não conclui o cadastro, e os dados preenchidos não são enviados nem guardados.
             </p>
             <p className="m-0">
               Responsáveis podem, a qualquer momento, pedir acesso, correção ou exclusão dos dados do estudante sob

@@ -66,18 +66,15 @@ export default function TermosPage() {
 
           <LegalSection title="4. Idade mínima">
             <p className="m-0">
-              A idade mínima para criar conta na Leterizza é de <strong>12 anos</strong>.
+              A idade mínima para criar conta na Leterizza é de <strong>16 anos</strong>. Quem tem menos de 16
+              anos não consegue concluir o cadastro.
             </p>
             <p className="m-0">
-              No cadastro pedimos sua data de nascimento. Ela define quais proteções aplicamos e como sua conta
-              funciona:
+              No cadastro pedimos sua data de nascimento. Ela confirma a idade mínima e define quais proteções
+              aplicamos:
             </p>
             <LegalList
               items={[
-                <>
-                  <strong>De 12 a 15 anos:</strong> sua conta precisa estar vinculada à conta de um responsável
-                  legal. Sem essa vinculação, o cadastro não é concluído.
-                </>,
                 <>
                   <strong>De 16 a 17 anos:</strong> você usa a plataforma com conta própria, com as proteções
                   descritas na seção 6.
@@ -88,7 +85,7 @@ export default function TermosPage() {
               ]}
             />
             <p className="m-0">
-              Se identificarmos que uma conta foi criada por alguém com menos de 12 anos, vamos suspendê-la e
+              Se identificarmos que uma conta foi criada por alguém com menos de 16 anos, vamos suspendê-la e
               eliminar os dados associados.
             </p>
           </LegalSection>
@@ -119,13 +116,7 @@ export default function TermosPage() {
               ]}
             />
             <p className="m-0">
-              Se você tem entre 12 e 15 anos, o cadastro só é concluído depois que um responsável legal confirmar a
-              vinculação da sua conta. Enviamos a solicitação para o e-mail que você indicar e adotamos medidas para
-              confirmar que a resposta veio mesmo de um adulto.
-            </p>
-            <p className="m-0">
-              O responsável pode acompanhar a conta, revogar a autorização e pedir a exclusão dos dados a qualquer
-              momento.
+              A Leterizza é para maiores de 16 anos. Quem tem menos de 16 anos não consegue concluir o cadastro.
             </p>
           </LegalSection>
 
