@@ -1,5 +1,6 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { YouTubeFacade } from '@/components/YouTubeFacade';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Users, Linkedin } from 'lucide-react';
@@ -196,11 +197,7 @@ export default function SobreNos() {
 
             {/* Vídeo Manifesto (Placeholder) */}
             <div className="w-full max-w-3xl mx-auto">
-              <iframe
-                className="w-full aspect-video rounded-3xl relative border border-purple-100 shadow-[0_0_60px_rgba(139,61,255,0.15)] hover:shadow-[0_0_80px_rgba(139,61,255,0.25)]"
-                src="https://www.youtube.com/embed/RW3VCi_MtjI"
-                title="YouTube video player">
-              </iframe>
+              <YouTubeFacade videoId="RW3VCi_MtjI" title="O que é a Leterizza?" />
             </div>
           </div>
         </section>

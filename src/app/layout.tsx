@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono, Poppins, Kalam, Caveat } from "next/font/google";
 import "./globals.css";
 
@@ -65,12 +64,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${kalam.variable} ${caveat.variable} antialiased`}
       >
         {children}
-
-        <Script
-          id="hs-script-loader"
-          src="https://js.hs-scripts.com/50515665.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
