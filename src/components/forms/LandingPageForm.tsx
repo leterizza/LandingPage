@@ -10,7 +10,7 @@ const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/LSCPzmku0yjENNcwEcg2eY";
 // Nomes internos das propriedades de contato no HubSpot. Se o nome interno criado
 // lá for diferente do que está aqui, ajuste só este bloco.
 const CAMPOS_HUBSPOT = {
-  nascimento: "date_of_birth",
+  nascimento: "nascimento_cadastro",
   novidades: "consentimento_novidades",
   novidadesDataHora: "consentimento_novidades_data_hora",
   novidadesVersaoTexto: "consentimento_novidades_versao_texto",
